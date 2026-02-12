@@ -41,26 +41,29 @@ const Dashboard = () => {
                 {win.title}
               </span>
             </div>
-            <div className="flex-1 relative">
-              {win.type === "app" ? (
-                <Link
-                  to={win.url!}
-                  className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground hover:text-primary transition-colors group cursor-pointer"
-                >
-                  <img src={win.logo} alt={win.title} className="w-20 h-20 rounded-xl object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
-                  <span className="text-sm font-display uppercase tracking-wider">
-                    Open {win.title}
-                  </span>
-                </Link>
-              ) : (
-                <div className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground">
-                  <Clock className="w-8 h-8 opacity-40" />
-                  <span className="text-sm font-display uppercase tracking-wider">
-                    Coming Soon
-                  </span>
-                </div>
-              )}
-            </div>
+            {win.type === "app" ? (
+              <Link
+                to={win.url!}
+                className="flex-1 relative group cursor-pointer overflow-hidden"
+              >
+                <img
+                  src={win.logo}
+                  alt={win.title}
+                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
+                <span className="absolute bottom-4 left-0 right-0 text-center text-sm font-display uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">
+                  Open {win.title}
+                </span>
+              </Link>
+            ) : (
+              <div className="flex-1 flex flex-col items-center justify-center gap-3 text-muted-foreground">
+                <Clock className="w-8 h-8 opacity-40" />
+                <span className="text-sm font-display uppercase tracking-wider">
+                  Coming Soon
+                </span>
+              </div>
+            )}
           </div>
         ))}
       </div>
