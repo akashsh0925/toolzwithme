@@ -1,14 +1,14 @@
-import { Clock } from "lucide-react";
+import { Clock, ExternalLink } from "lucide-react";
 
 const windows = [
   {
     title: "PDF Link Genie",
-    type: "iframe" as const,
+    type: "app" as const,
     url: "/pdf-link-genie",
   },
   {
     title: "GDrive DL",
-    type: "iframe" as const,
+    type: "app" as const,
     url: "/gdrive",
   },
   { title: "Window 3", type: "coming-soon" as const },
@@ -37,13 +37,18 @@ const Dashboard = () => {
               </span>
             </div>
             <div className="flex-1 relative">
-              {win.type === "iframe" ? (
-                <iframe
-                  src={win.url}
-                  className="w-full h-full border-0"
-                  title={win.title}
-                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
-                />
+              {win.type === "app" ? (
+                <a
+                  href={win.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground hover:text-primary transition-colors group cursor-pointer"
+                >
+                  <ExternalLink className="w-8 h-8 opacity-40 group-hover:opacity-80 transition-opacity" />
+                  <span className="text-sm font-display uppercase tracking-wider">
+                    Open {win.title}
+                  </span>
+                </a>
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground">
                   <Clock className="w-8 h-8 opacity-40" />
