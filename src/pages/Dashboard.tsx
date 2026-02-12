@@ -49,7 +49,7 @@ const Dashboard = () => {
                 <img
                   src={win.logo}
                   alt={win.title}
-                  className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+                  className="absolute inset-0 w-full h-full object-contain p-8 opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                 />
               </Link>
             ) : (
