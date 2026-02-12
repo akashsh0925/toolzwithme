@@ -1,4 +1,5 @@
 import { Clock, ExternalLink } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const windows = [
   {
@@ -38,17 +39,15 @@ const Dashboard = () => {
             </div>
             <div className="flex-1 relative">
               {win.type === "app" ? (
-                <a
-                  href={win.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  to={win.url!}
                   className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground hover:text-primary transition-colors group cursor-pointer"
                 >
                   <ExternalLink className="w-8 h-8 opacity-40 group-hover:opacity-80 transition-opacity" />
                   <span className="text-sm font-display uppercase tracking-wider">
                     Open {win.title}
                   </span>
-                </a>
+                </Link>
               ) : (
                 <div className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground">
                   <Clock className="w-8 h-8 opacity-40" />
