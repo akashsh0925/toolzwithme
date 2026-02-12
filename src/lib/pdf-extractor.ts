@@ -1,7 +1,4 @@
-import * as pdfjsLib from 'pdfjs-dist';
-
-pdfjsLib.GlobalWorkerOptions.workerSrc = `https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs`;
-
+// Safe URL protocols - prevents XSS attacks
 const SAFE_URL_PROTOCOLS = ['http:', 'https:', 'mailto:', 'tel:'];
 
 export function isSafeUrl(url: string): boolean {
@@ -26,12 +23,23 @@ export interface ExtractionResult {
   fileName: string;
 }
 
+let pdfjsLib: any = null;
+
+async function loadPdfJs() {
+  if (pdfjsLib) return pdfjsLib;
+  // @ts-ignore - dynamic import from CDN
+  pdfjsLib = await import(/* @vite-ignore */ 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.mjs');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';
+  return pdfjsLib;
+}
+
 export async function extractLinksFromPDF(
   file: File,
   onProgress?: (progress: number) => void
 ): Promise<ExtractionResult> {
+  const pdfjs = await loadPdfJs();
   const arrayBuffer = await file.arrayBuffer();
-  const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
+  const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
 
   const links: ExtractedLink[] = [];
   const totalPages = pdf.numPages;
