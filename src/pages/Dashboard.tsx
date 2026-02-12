@@ -2,6 +2,7 @@ import { Clock } from "lucide-react";
 import { Link } from "react-router-dom";
 import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
+import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
 
 const windows = [
   {
@@ -16,7 +17,12 @@ const windows = [
     url: "/gdrive",
     logo: gdriveDlLogo,
   },
-  { title: "Window 3", type: "coming-soon" as const },
+  {
+    title: "Multi URL",
+    type: "app" as const,
+    url: "/multi-url",
+    logo: multiUrlLogo,
+  },
   { title: "Window 4", type: "coming-soon" as const },
   { title: "Window 5", type: "coming-soon" as const },
   { title: "Window 6", type: "coming-soon" as const },
