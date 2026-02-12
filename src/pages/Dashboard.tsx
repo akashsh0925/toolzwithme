@@ -2,9 +2,9 @@ import { Clock } from "lucide-react";
 
 const windows = [
   {
-    title: "Lovable Project",
+    title: "PDF Link Genie",
     type: "iframe" as const,
-    url: "https://lovable.dev/projects/a96388e9-1693-4544-a7ab-3ab375a17549",
+    url: "/pdf-link-genie",
   },
   {
     title: "GDrive DL",
