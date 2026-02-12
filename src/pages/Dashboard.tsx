@@ -51,10 +51,6 @@ const Dashboard = () => {
                   alt={win.title}
                   className="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card/90 to-transparent" />
-                <span className="absolute bottom-4 left-0 right-0 text-center text-sm font-display uppercase tracking-wider text-muted-foreground group-hover:text-primary transition-colors">
-                  Open {win.title}
-                </span>
               </Link>
             ) : (
               <div className="flex-1 flex flex-col items-center justify-center gap-3 text-muted-foreground">
