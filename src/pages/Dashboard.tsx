@@ -1,16 +1,20 @@
-import { Clock, ExternalLink } from "lucide-react";
+import { Clock } from "lucide-react";
 import { Link } from "react-router-dom";
+import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
+import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 
 const windows = [
   {
     title: "PDF Link Genie",
     type: "app" as const,
     url: "/pdf-link-genie",
+    logo: pdfLinkGenieLogo,
   },
   {
     title: "GDrive DL",
     type: "app" as const,
     url: "/gdrive",
+    logo: gdriveDlLogo,
   },
   { title: "Window 3", type: "coming-soon" as const },
   { title: "Window 4", type: "coming-soon" as const },
@@ -43,7 +47,7 @@ const Dashboard = () => {
                   to={win.url!}
                   className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground hover:text-primary transition-colors group cursor-pointer"
                 >
-                  <ExternalLink className="w-8 h-8 opacity-40 group-hover:opacity-80 transition-opacity" />
+                  <img src={win.logo} alt={win.title} className="w-20 h-20 rounded-xl object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                   <span className="text-sm font-display uppercase tracking-wider">
                     Open {win.title}
                   </span>
