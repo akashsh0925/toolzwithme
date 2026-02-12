@@ -49,11 +49,13 @@ export async function extractLinksFromPDF(
     const annotations = await page.getAnnotations();
 
     for (const annotation of annotations) {
-      if (annotation.subtype === 'Link' && annotation.url && isSafeUrl(annotation.url)) {
+      // pdf.js may store URLs in 'url' or 'unsafeUrl' depending on version/link type
+      const linkUrl = annotation.url || annotation.unsafeUrl;
+      if (annotation.subtype === 'Link' && linkUrl && isSafeUrl(linkUrl)) {
         links.push({
           id: `${pageNum}-${links.length}`,
-          url: annotation.url,
-          title: annotation.title || annotation.url,
+          url: linkUrl,
+          title: annotation.title || linkUrl,
           pageNumber: pageNum,
         });
       }
