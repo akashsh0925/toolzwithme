@@ -1,44 +1,61 @@
-import { Link } from "react-router-dom";
-import { Link2, HardDrive, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
-const tools = [
-  { name: "PDF Link Genie", desc: "Extract links from PDFs", icon: Link2, path: "/pdf-link-genie", ready: true },
-  { name: "GDrive Downloader", desc: "Download Google Drive files", icon: HardDrive, path: "/gdrive", ready: false },
-  { name: "Coming Soon", desc: "More tools on the way", icon: Clock, path: "#", ready: false },
-  { name: "Coming Soon", desc: "More tools on the way", icon: Clock, path: "#", ready: false },
-  { name: "Coming Soon", desc: "More tools on the way", icon: Clock, path: "#", ready: false },
-  { name: "Coming Soon", desc: "More tools on the way", icon: Clock, path: "#", ready: false },
+const windows = [
+  {
+    title: "Lovable Project",
+    type: "iframe" as const,
+    url: "https://lovable.dev/projects/a96388e9-1693-4544-a7ab-3ab375a17549",
+  },
+  {
+    title: "GDrive DL",
+    type: "iframe" as const,
+    url: "/gdrive",
+  },
+  { title: "Window 3", type: "coming-soon" as const },
+  { title: "Window 4", type: "coming-soon" as const },
+  { title: "Window 5", type: "coming-soon" as const },
+  { title: "Window 6", type: "coming-soon" as const },
 ];
 
 const Dashboard = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b border-border bg-card/50 backdrop-blur-sm">
-        <div className="container max-w-6xl mx-auto px-4 py-6">
-          <h1 className="text-3xl font-bold tracking-tight">Toolz</h1>
-          <p className="text-muted-foreground mt-1">Your collection of handy web tools</p>
-        </div>
-      </header>
-
-      <main className="container max-w-6xl mx-auto px-4 py-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {tools.map((tool, i) => (
-            <Link
-              key={i}
-              to={tool.ready ? tool.path : "#"}
-              className={`group p-6 rounded-xl border border-border bg-card hover:bg-accent/50 transition-all duration-200 ${
-                !tool.ready ? "opacity-50 pointer-events-none" : "hover:shadow-lg hover:-translate-y-0.5"
-              }`}
-            >
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                <tool.icon className="w-6 h-6 text-primary" />
+    <div className="min-h-screen bg-background p-4">
+      <div className="grid grid-cols-3 grid-rows-2 gap-4 h-[calc(100vh-2rem)]">
+        {windows.map((win, i) => (
+          <div
+            key={i}
+            className="rounded-xl border border-border bg-card overflow-hidden flex flex-col"
+          >
+            <div className="px-4 py-2 border-b border-border bg-secondary/50 flex items-center gap-2">
+              <div className="flex gap-1.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-destructive/60" />
+                <span className="w-2.5 h-2.5 rounded-full bg-accent" />
+                <span className="w-2.5 h-2.5 rounded-full bg-primary/60" />
               </div>
-              <h3 className="text-lg font-semibold mb-1">{tool.name}</h3>
-              <p className="text-sm text-muted-foreground">{tool.desc}</p>
-            </Link>
-          ))}
-        </div>
-      </main>
+              <span className="text-xs font-display text-muted-foreground uppercase tracking-wider ml-2">
+                {win.title}
+              </span>
+            </div>
+            <div className="flex-1 relative">
+              {win.type === "iframe" ? (
+                <iframe
+                  src={win.url}
+                  className="w-full h-full border-0"
+                  title={win.title}
+                  sandbox="allow-scripts allow-same-origin allow-popups allow-forms"
+                />
+              ) : (
+                <div className="flex flex-col items-center justify-center h-full gap-3 text-muted-foreground">
+                  <Clock className="w-8 h-8 opacity-40" />
+                  <span className="text-sm font-display uppercase tracking-wider">
+                    Coming Soon
+                  </span>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
