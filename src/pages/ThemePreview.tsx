@@ -55,6 +55,19 @@ const themes = [
     accent: "text-[hsl(217,91%,60%)]",
     accentBg: "bg-[hsl(217,91%,60%)]",
     accentText: "text-white",
+    extra: "",
+  },
+  {
+    name: "Pixelated / Retro",
+    bg: "bg-[hsl(240,20%,8%)]",
+    card: "bg-[hsl(240,15%,12%)]",
+    border: "border-[hsl(120,60%,35%)]",
+    text: "text-[hsl(120,80%,75%)]",
+    muted: "text-[hsl(120,30%,40%)]",
+    accent: "text-[hsl(120,100%,50%)]",
+    accentBg: "bg-[hsl(120,100%,50%)]",
+    accentText: "text-[hsl(240,20%,5%)]",
+    extra: "font-mono [image-rendering:pixelated] [text-shadow:0_0_8px_hsl(120,100%,50%,0.5)]",
   },
 ];
 
@@ -77,7 +90,7 @@ const ThemePreview = () => {
           {themes.map((t) => (
             <div
               key={t.name}
-              className={`${t.bg} ${t.border} border rounded-xl overflow-hidden`}
+              className={`${t.bg} ${t.border} ${'extra' in t ? (t as any).extra : ''} border rounded-xl overflow-hidden`}
             >
               {/* Mini nav */}
               <div className={`${t.border} border-b px-4 py-3 flex items-center justify-between`}>
