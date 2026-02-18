@@ -9,6 +9,7 @@ import GDrive from "./pages/GDrive";
 import PdfLinkGenie from "./pages/PdfLinkGenie";
 import ThemePreview from "./pages/ThemePreview";
 import MultiUrlOpener from "./pages/MultiUrlOpener";
+import NewsletterSubscriber from "./pages/NewsletterSubscriber";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
           <Route path="/pdf-link-genie" element={<PdfLinkGenie />} />
           <Route path="/multi-url" element={<MultiUrlOpener />} />
           <Route path="/theme-preview" element={<ThemePreview />} />
+          <Route path="/newsletter" element={<NewsletterSubscriber />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

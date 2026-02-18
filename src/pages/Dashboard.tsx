@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
+import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
 
 const windows = [
   {
@@ -23,7 +24,12 @@ const windows = [
     url: "/multi-url",
     logo: multiUrlLogo,
   },
-  { title: "Window 4", type: "coming-soon" as const },
+  {
+    title: "NewsletterBot",
+    type: "app" as const,
+    url: "/newsletter",
+    logo: newsletterLogo,
+  },
   { title: "Window 5", type: "coming-soon" as const },
   { title: "Window 6", type: "coming-soon" as const },
 ];
