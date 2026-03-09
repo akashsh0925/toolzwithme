@@ -26,6 +26,9 @@ const platformLabel: Record<string, string> = {
   substack: "Substack",
   beehiiv: "Beehiiv",
   mailchimp: "Mailchimp",
+  ghost: "Ghost",
+  convertkit: "ConvertKit",
+  buttondown: "Buttondown",
   generic: "Generic",
 };
 
