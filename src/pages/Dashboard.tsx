@@ -1,5 +1,6 @@
 import { Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import UserMenu from "@/components/UserMenu";
 import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
@@ -57,13 +58,16 @@ const Dashboard = () => {
     <div className="min-h-screen bg-background px-4 py-8 md:py-16">
       <div className="max-w-5xl mx-auto space-y-8">
         {/* Header */}
-        <div className="space-y-2">
-          <h1 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-foreground">
-            Tools
-          </h1>
-          <p className="text-muted-foreground text-sm md:text-base max-w-lg">
-            Productivity utilities that run entirely in your browser. Pick a tool to get started.
-          </p>
+        <div className="flex items-start justify-between">
+          <div className="space-y-2">
+            <h1 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-foreground">
+              Tools
+            </h1>
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg">
+              Productivity utilities that run entirely in your browser. Pick a tool to get started.
+            </p>
+          </div>
+          <UserMenu />
         </div>
 
         {/* Grid */}
