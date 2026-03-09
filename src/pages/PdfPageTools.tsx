@@ -54,7 +54,7 @@ const PdfPageTools = () => {
       const toDelete = parseRanges(deletePages, doc.getPageCount());
       // Delete from end to preserve indices
       for (const p of toDelete.reverse()) doc.removePage(p - 1);
-      setResult(await doc.save());
+      setResult(new Uint8Array(await doc.save()));
       toast.success(`Deleted ${toDelete.length} page(s)`);
     } catch (e: any) { toast.error(e.message); }
     setProcessing(false);
