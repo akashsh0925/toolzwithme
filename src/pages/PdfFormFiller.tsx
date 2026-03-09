@@ -97,7 +97,7 @@ const PdfFormFiller = () => {
 
       // Flatten to make it non-editable
       form.flatten();
-      setResult(await doc.save());
+      setResult(new Uint8Array(await doc.save()));
       toast.success("Form filled and saved!");
     } catch (e: any) {
       toast.error(e.message);
