@@ -38,6 +38,30 @@ export type Database = {
         }
         Relationships: []
       }
+      tool_usage: {
+        Row: {
+          id: string
+          session_id: string
+          tool_name: string
+          used_at: string
+          user_id: string | null
+        }
+        Insert: {
+          id?: string
+          session_id: string
+          tool_name: string
+          used_at?: string
+          user_id?: string | null
+        }
+        Update: {
+          id?: string
+          session_id?: string
+          tool_name?: string
+          used_at?: string
+          user_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
