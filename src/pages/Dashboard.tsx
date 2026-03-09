@@ -63,9 +63,11 @@ const Dashboard = () => {
             <h1 className="text-3xl md:text-4xl font-bold font-display tracking-tight text-foreground">
               Tools
             </h1>
-          <p className="text-muted-foreground text-sm md:text-base max-w-lg">
-            Productivity utilities that run entirely in your browser. Pick a tool to get started.
-          </p>
+            <p className="text-muted-foreground text-sm md:text-base max-w-lg">
+              Productivity utilities that run entirely in your browser. Pick a tool to get started.
+            </p>
+          </div>
+          <UserMenu />
         </div>
 
         {/* Grid */}
