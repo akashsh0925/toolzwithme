@@ -89,7 +89,7 @@ const PdfPageTools = () => {
         const page = doc.getPage(p - 1);
         page.setRotation(degrees(page.getRotation().angle + rotateAngle));
       });
-      setResult(await doc.save());
+      setResult(new Uint8Array(await doc.save()));
       toast.success(`Rotated ${toRotate.length} page(s)`);
     } catch (e: any) { toast.error(e.message); }
     setProcessing(false);
