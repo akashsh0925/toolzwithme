@@ -169,8 +169,8 @@ const NewsletterSubscriber = () => {
         {/* Approach legend */}
         <div className="grid grid-cols-3 gap-3 text-xs">
           {[
-            { icon: <Zap className="w-3.5 h-3.5" />, label: "API", desc: "Substack & Beehiiv — direct subscription", color: "text-emerald-400" },
-            { icon: <ExternalLink className="w-3.5 h-3.5" />, label: "Pre-fill", desc: "Mailchimp — email injected into form URL", color: "text-amber-400" },
+            { icon: <Zap className="w-3.5 h-3.5" />, label: "API", desc: "Substack, Beehiiv & Ghost — direct subscription", color: "text-emerald-400" },
+            { icon: <ExternalLink className="w-3.5 h-3.5" />, label: "Pre-fill", desc: "Mailchimp, ConvertKit & Buttondown — email injected into form URL", color: "text-amber-400" },
             { icon: <Mail className="w-3.5 h-3.5" />, label: "Manual", desc: "Generic sites — page opened for you", color: "text-muted-foreground" },
           ].map(({ icon, label, desc, color }) => (
             <div key={label} className="rounded-xl border border-border bg-card p-3 space-y-1">
