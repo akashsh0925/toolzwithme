@@ -23,7 +23,7 @@ const HtmlEntityEncoder = () => {
     } else {
       let decoded = input;
       Object.entries(REVERSE).forEach(([entity, char]) => {
-        decoded = decoded.replaceAll(entity, char);
+        decoded = decoded.split(entity).join(char);
       });
       decoded = decoded.replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)));
       decoded = decoded.replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)));
