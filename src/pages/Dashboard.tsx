@@ -4,6 +4,7 @@ import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
 import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
+import cardGenLogo from "@/assets/card-generator-logo.png";
 
 const tools = [
   {
@@ -34,7 +35,13 @@ const tools = [
     url: "/newsletter",
     logo: newsletterLogo,
   },
-  { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
+  {
+    title: "Card Gen",
+    description: "Generate Luhn-valid test card numbers for payment gateway testing.",
+    type: "app" as const,
+    url: "/card-generator",
+    logo: cardGenLogo,
+  },
   { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
 ];
 
