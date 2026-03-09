@@ -41,15 +41,10 @@ const PdfPasswordRemover = () => {
       let pdfDoc;
       try {
         pdfDoc = await PDFDocument.load(bytes, {
-          password: password || undefined,
-          ignoreEncryption: false,
+          ignoreEncryption: true,
         });
       } catch (e: any) {
-        if (e.message?.includes("password") || e.message?.includes("encrypted")) {
-          setError("Incorrect password or unsupported encryption. Please check the password and try again.");
-        } else {
-          setError(e.message || "Failed to process PDF");
-        }
+        setError(e.message || "Failed to process PDF");
         setProcessing(false);
         return;
       }
