@@ -29,6 +29,7 @@ const App = () => (
           <Route path="/multi-url" element={<MultiUrlOpener />} />
           <Route path="/theme-preview" element={<ThemePreview />} />
           <Route path="/newsletter" element={<NewsletterSubscriber />} />
+          <Route path="/card-generator" element={<CardGenerator />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
