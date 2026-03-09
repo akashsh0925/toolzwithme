@@ -23,22 +23,34 @@ import CardGenerator from "./pages/CardGenerator";
 import TempEmail from "./pages/TempEmail";
 import ThemePreview from "./pages/ThemePreview";
 
-// Phase 1 – PDF
+// All lazy-loaded tools
 const PdfPasswordRemover = lazy(() => import("./pages/PdfPasswordRemover"));
 const PdfOcr = lazy(() => import("./pages/PdfOcr"));
 const PdfPageTools = lazy(() => import("./pages/PdfPageTools"));
 const PdfFormFiller = lazy(() => import("./pages/PdfFormFiller"));
 const PdfToOffice = lazy(() => import("./pages/PdfToOffice"));
-// Phase 1 – Image
+const PdfCompressor = lazy(() => import("./pages/PdfCompressor"));
+const PdfCompare = lazy(() => import("./pages/PdfCompare"));
+const PdfRedaction = lazy(() => import("./pages/PdfRedaction"));
+const PdfSignature = lazy(() => import("./pages/PdfSignature"));
+const PdfImageExtractor = lazy(() => import("./pages/PdfImageExtractor"));
 const HeicConverter = lazy(() => import("./pages/HeicConverter"));
 const ImageBatch = lazy(() => import("./pages/ImageBatch"));
-// Phase 1 – Text
+const GlitchArt = lazy(() => import("./pages/GlitchArt"));
+const RetroText = lazy(() => import("./pages/RetroText"));
+const SvgOptimizer = lazy(() => import("./pages/SvgOptimizer"));
+const FaviconGenerator = lazy(() => import("./pages/FaviconGenerator"));
 const MarkdownEditor = lazy(() => import("./pages/MarkdownEditor"));
 const JsonToolkit = lazy(() => import("./pages/JsonToolkit"));
 const TextDiff = lazy(() => import("./pages/TextDiff"));
-// Phase 2
+const RegexTester = lazy(() => import("./pages/RegexTester"));
+const Base64Converter = lazy(() => import("./pages/Base64Converter"));
+const UrlEncoder = lazy(() => import("./pages/UrlEncoder"));
+const HtmlEntityEncoder = lazy(() => import("./pages/HtmlEntityEncoder"));
+const ColorConverter = lazy(() => import("./pages/ColorConverter"));
+const LoremIpsum = lazy(() => import("./pages/LoremIpsum"));
+const CssMinifier = lazy(() => import("./pages/CssMinifier"));
 const YoutubeThumbnail = lazy(() => import("./pages/YoutubeThumbnail"));
-// Phase 3
 const PasswordGenerator = lazy(() => import("./pages/PasswordGenerator"));
 const PomodoroTimer = lazy(() => import("./pages/PomodoroTimer"));
 const UnitConverter = lazy(() => import("./pages/UnitConverter"));
@@ -63,7 +75,6 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/tools" element={<Dashboard />} />
-              {/* Existing tools */}
               <Route path="/gdrive" element={<GDrive />} />
               <Route path="/pdf-link-genie" element={<PdfLinkGenie />} />
               <Route path="/multi-url" element={<MultiUrlOpener />} />
@@ -71,27 +82,37 @@ const App = () => (
               <Route path="/card-generator" element={<CardGenerator />} />
               <Route path="/temp-email" element={<TempEmail />} />
               <Route path="/theme-preview" element={<ThemePreview />} />
-              {/* Phase 1 – PDF */}
               <Route path="/pdf-password-remover" element={<PdfPasswordRemover />} />
               <Route path="/pdf-ocr" element={<PdfOcr />} />
               <Route path="/pdf-page-tools" element={<PdfPageTools />} />
               <Route path="/pdf-form-filler" element={<PdfFormFiller />} />
               <Route path="/pdf-to-office" element={<PdfToOffice />} />
-              {/* Phase 1 – Image */}
+              <Route path="/pdf-compressor" element={<PdfCompressor />} />
+              <Route path="/pdf-compare" element={<PdfCompare />} />
+              <Route path="/pdf-redaction" element={<PdfRedaction />} />
+              <Route path="/pdf-signature" element={<PdfSignature />} />
+              <Route path="/pdf-image-extractor" element={<PdfImageExtractor />} />
               <Route path="/heic-converter" element={<HeicConverter />} />
               <Route path="/image-batch" element={<ImageBatch />} />
-              {/* Phase 1 – Text */}
+              <Route path="/glitch-art" element={<GlitchArt />} />
+              <Route path="/retro-text" element={<RetroText />} />
+              <Route path="/svg-optimizer" element={<SvgOptimizer />} />
+              <Route path="/favicon-generator" element={<FaviconGenerator />} />
               <Route path="/markdown-editor" element={<MarkdownEditor />} />
               <Route path="/json-toolkit" element={<JsonToolkit />} />
               <Route path="/text-diff" element={<TextDiff />} />
-              {/* Phase 2 */}
+              <Route path="/regex-tester" element={<RegexTester />} />
+              <Route path="/base64-converter" element={<Base64Converter />} />
+              <Route path="/url-encoder" element={<UrlEncoder />} />
+              <Route path="/html-entity-encoder" element={<HtmlEntityEncoder />} />
+              <Route path="/color-converter" element={<ColorConverter />} />
+              <Route path="/lorem-ipsum" element={<LoremIpsum />} />
+              <Route path="/css-minifier" element={<CssMinifier />} />
               <Route path="/youtube-thumbnail" element={<YoutubeThumbnail />} />
-              {/* Phase 3 */}
               <Route path="/password-generator" element={<PasswordGenerator />} />
               <Route path="/pomodoro-timer" element={<PomodoroTimer />} />
               <Route path="/unit-converter" element={<UnitConverter />} />
               <Route path="/word-counter" element={<WordCounter />} />
-              {/* Auth */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
