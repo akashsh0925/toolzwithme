@@ -22,8 +22,13 @@ Deno.serve(async (req) => {
 
     const res = await fetch(endpoint, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
+      headers: {
+        'Content-Type': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'Origin': `https://${publication}.substack.com`,
+        'Referer': `https://${publication}.substack.com/`,
+      },
+      body: JSON.stringify({ email, first_url: `https://${publication}.substack.com/`, first_referrer: '', current_url: `https://${publication}.substack.com/` }),
     });
 
     const text = await res.text();
