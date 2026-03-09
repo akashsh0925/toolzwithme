@@ -35,7 +35,13 @@ const tools = [
     url: "/newsletter",
     logo: newsletterLogo,
   },
-  { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
+  {
+    title: "Card Gen",
+    description: "Generate Luhn-valid test card numbers for payment gateway testing.",
+    type: "app" as const,
+    url: "/card-generator",
+    logo: cardGenLogo,
+  },
   { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
 ];
 
