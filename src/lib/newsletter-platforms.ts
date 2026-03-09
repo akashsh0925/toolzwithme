@@ -37,37 +37,27 @@ export function getDomain(url: string): string {
 
 async function subscribeSubstack(url: string, email: string): Promise<SubscriptionResult> {
   const domain = getDomain(url);
-  // Extract the subdomain: e.g. "publication.substack.com" → "publication"
   const { hostname } = new URL(url);
   const publication = hostname.replace(".substack.com", "");
-  const endpoint = `https://${publication}.substack.com/api/v1/free`;
 
   try {
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
+    const { supabase } = await import("@/integrations/supabase/client");
+    const { data, error } = await supabase.functions.invoke("subscribe-substack", {
+      body: { email, publication },
     });
 
-    if (res.ok) {
-      return { url, domain, platform: "substack", method: "api", status: "subscribed", message: "Successfully subscribed via Substack API" };
+    if (error) throw new Error(error.message);
+
+    if (data?.success) {
+      return { url, domain, platform: "substack", method: "api", status: "subscribed", message: data.message || "Subscribed via API" };
     }
 
-    const text = await res.text().catch(() => "");
-    // Substack returns 400 if already subscribed
-    if (res.status === 400 && text.toLowerCase().includes("already")) {
-      return { url, domain, platform: "substack", method: "api", status: "subscribed", message: "Already subscribed" };
-    }
-
-    throw new Error(`HTTP ${res.status}`);
+    throw new Error(data?.message || "Unknown error");
   } catch (err: unknown) {
     const msg = err instanceof Error ? err.message : String(err);
-    if (msg.toLowerCase().includes("cors") || msg.toLowerCase().includes("failed to fetch") || msg.toLowerCase().includes("network")) {
-      // CORS fallback → open tab
-      window.open(url, "_blank", "noopener,noreferrer");
-      return { url, domain, platform: "substack", method: "manual", status: "opened", message: "CORS blocked — opened page manually" };
-    }
-    return { url, domain, platform: "substack", method: "api", status: "failed", message: `API error: ${msg}` };
+    // Fallback: open in new tab
+    window.open(url, "_blank", "noopener,noreferrer");
+    return { url, domain, platform: "substack", method: "manual", status: "opened", message: `Fallback — opened page (${msg})` };
   }
 }
 
