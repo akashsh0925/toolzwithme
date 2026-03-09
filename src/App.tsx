@@ -23,17 +23,26 @@ import CardGenerator from "./pages/CardGenerator";
 import TempEmail from "./pages/TempEmail";
 import ThemePreview from "./pages/ThemePreview";
 
-// Phase 1 - Lazy loaded tools
-const MarkdownEditor = lazy(() => import("./pages/MarkdownEditor"));
-const JsonToolkit = lazy(() => import("./pages/JsonToolkit"));
-const TextDiff = lazy(() => import("./pages/TextDiff"));
+// Phase 1 – PDF
 const PdfPasswordRemover = lazy(() => import("./pages/PdfPasswordRemover"));
 const PdfOcr = lazy(() => import("./pages/PdfOcr"));
 const PdfPageTools = lazy(() => import("./pages/PdfPageTools"));
 const PdfFormFiller = lazy(() => import("./pages/PdfFormFiller"));
 const PdfToOffice = lazy(() => import("./pages/PdfToOffice"));
+// Phase 1 – Image
 const HeicConverter = lazy(() => import("./pages/HeicConverter"));
 const ImageBatch = lazy(() => import("./pages/ImageBatch"));
+// Phase 1 – Text
+const MarkdownEditor = lazy(() => import("./pages/MarkdownEditor"));
+const JsonToolkit = lazy(() => import("./pages/JsonToolkit"));
+const TextDiff = lazy(() => import("./pages/TextDiff"));
+// Phase 2
+const YoutubeThumbnail = lazy(() => import("./pages/YoutubeThumbnail"));
+// Phase 3
+const PasswordGenerator = lazy(() => import("./pages/PasswordGenerator"));
+const PomodoroTimer = lazy(() => import("./pages/PomodoroTimer"));
+const UnitConverter = lazy(() => import("./pages/UnitConverter"));
+const WordCounter = lazy(() => import("./pages/WordCounter"));
 
 const queryClient = new QueryClient();
 
@@ -62,19 +71,26 @@ const App = () => (
               <Route path="/card-generator" element={<CardGenerator />} />
               <Route path="/temp-email" element={<TempEmail />} />
               <Route path="/theme-preview" element={<ThemePreview />} />
-              {/* Phase 1 - PDF tools */}
+              {/* Phase 1 – PDF */}
               <Route path="/pdf-password-remover" element={<PdfPasswordRemover />} />
               <Route path="/pdf-ocr" element={<PdfOcr />} />
               <Route path="/pdf-page-tools" element={<PdfPageTools />} />
               <Route path="/pdf-form-filler" element={<PdfFormFiller />} />
               <Route path="/pdf-to-office" element={<PdfToOffice />} />
-              {/* Phase 1 - Image tools */}
+              {/* Phase 1 – Image */}
               <Route path="/heic-converter" element={<HeicConverter />} />
               <Route path="/image-batch" element={<ImageBatch />} />
-              {/* Phase 1 - Text tools */}
+              {/* Phase 1 – Text */}
               <Route path="/markdown-editor" element={<MarkdownEditor />} />
               <Route path="/json-toolkit" element={<JsonToolkit />} />
               <Route path="/text-diff" element={<TextDiff />} />
+              {/* Phase 2 */}
+              <Route path="/youtube-thumbnail" element={<YoutubeThumbnail />} />
+              {/* Phase 3 */}
+              <Route path="/password-generator" element={<PasswordGenerator />} />
+              <Route path="/pomodoro-timer" element={<PomodoroTimer />} />
+              <Route path="/unit-converter" element={<UnitConverter />} />
+              <Route path="/word-counter" element={<WordCounter />} />
               {/* Auth */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
