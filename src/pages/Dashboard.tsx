@@ -1,5 +1,6 @@
 import { Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import UserMenu from "@/components/UserMenu";
 import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
