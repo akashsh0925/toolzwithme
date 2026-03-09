@@ -23,10 +23,17 @@ import CardGenerator from "./pages/CardGenerator";
 import TempEmail from "./pages/TempEmail";
 import ThemePreview from "./pages/ThemePreview";
 
-// Phase 1 - Text tools (lazy loaded)
+// Phase 1 - Lazy loaded tools
 const MarkdownEditor = lazy(() => import("./pages/MarkdownEditor"));
 const JsonToolkit = lazy(() => import("./pages/JsonToolkit"));
 const TextDiff = lazy(() => import("./pages/TextDiff"));
+const PdfPasswordRemover = lazy(() => import("./pages/PdfPasswordRemover"));
+const PdfOcr = lazy(() => import("./pages/PdfOcr"));
+const PdfPageTools = lazy(() => import("./pages/PdfPageTools"));
+const PdfFormFiller = lazy(() => import("./pages/PdfFormFiller"));
+const PdfToOffice = lazy(() => import("./pages/PdfToOffice"));
+const HeicConverter = lazy(() => import("./pages/HeicConverter"));
+const ImageBatch = lazy(() => import("./pages/ImageBatch"));
 
 const queryClient = new QueryClient();
 
@@ -55,6 +62,15 @@ const App = () => (
               <Route path="/card-generator" element={<CardGenerator />} />
               <Route path="/temp-email" element={<TempEmail />} />
               <Route path="/theme-preview" element={<ThemePreview />} />
+              {/* Phase 1 - PDF tools */}
+              <Route path="/pdf-password-remover" element={<PdfPasswordRemover />} />
+              <Route path="/pdf-ocr" element={<PdfOcr />} />
+              <Route path="/pdf-page-tools" element={<PdfPageTools />} />
+              <Route path="/pdf-form-filler" element={<PdfFormFiller />} />
+              <Route path="/pdf-to-office" element={<PdfToOffice />} />
+              {/* Phase 1 - Image tools */}
+              <Route path="/heic-converter" element={<HeicConverter />} />
+              <Route path="/image-batch" element={<ImageBatch />} />
               {/* Phase 1 - Text tools */}
               <Route path="/markdown-editor" element={<MarkdownEditor />} />
               <Route path="/json-toolkit" element={<JsonToolkit />} />
@@ -65,7 +81,6 @@ const App = () => (
               <Route path="/forgot-password" element={<ForgotPassword />} />
               <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/profile" element={<Profile />} />
-              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
