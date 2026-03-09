@@ -31,6 +31,7 @@ const App = () => (
           <Route path="/theme-preview" element={<ThemePreview />} />
           <Route path="/newsletter" element={<NewsletterSubscriber />} />
           <Route path="/card-generator" element={<CardGenerator />} />
+          <Route path="/temp-email" element={<TempEmail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

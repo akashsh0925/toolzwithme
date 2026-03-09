@@ -43,7 +43,13 @@ const tools = [
     url: "/card-generator",
     logo: cardGenLogo,
   },
-  { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
+  {
+    title: "Temp Email",
+    description: "Generate disposable email addresses with a live inbox for sign-ups and testing.",
+    type: "app" as const,
+    url: "/temp-email",
+    logo: tempEmailLogo,
+  },
 ];
 
 const Dashboard = () => {
