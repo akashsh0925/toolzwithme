@@ -26,6 +26,9 @@ const platformLabel: Record<string, string> = {
   substack: "Substack",
   beehiiv: "Beehiiv",
   mailchimp: "Mailchimp",
+  ghost: "Ghost",
+  convertkit: "ConvertKit",
+  buttondown: "Buttondown",
   generic: "Generic",
 };
 
@@ -166,8 +169,8 @@ const NewsletterSubscriber = () => {
         {/* Approach legend */}
         <div className="grid grid-cols-3 gap-3 text-xs">
           {[
-            { icon: <Zap className="w-3.5 h-3.5" />, label: "API", desc: "Substack & Beehiiv — direct subscription", color: "text-emerald-400" },
-            { icon: <ExternalLink className="w-3.5 h-3.5" />, label: "Pre-fill", desc: "Mailchimp — email injected into form URL", color: "text-amber-400" },
+            { icon: <Zap className="w-3.5 h-3.5" />, label: "API", desc: "Substack, Beehiiv & Ghost — direct subscription", color: "text-emerald-400" },
+            { icon: <ExternalLink className="w-3.5 h-3.5" />, label: "Pre-fill", desc: "Mailchimp, ConvertKit & Buttondown — email injected into form URL", color: "text-amber-400" },
             { icon: <Mail className="w-3.5 h-3.5" />, label: "Manual", desc: "Generic sites — page opened for you", color: "text-muted-foreground" },
           ].map(({ icon, label, desc, color }) => (
             <div key={label} className="rounded-xl border border-border bg-card p-3 space-y-1">
@@ -231,7 +234,7 @@ const NewsletterSubscriber = () => {
 
           <div className="rounded-lg bg-secondary/50 border border-border p-3 text-xs text-muted-foreground space-y-1">
             <p className="font-display font-semibold text-foreground uppercase tracking-wider text-[10px]">ℹ️ How it works</p>
-            <p>Substack & Beehiiv are subscribed automatically via their public APIs. Mailchimp opens with your email pre-filled. All other sites open in a new tab — you click Subscribe. CAPTCHAs on opened pages must be solved by you.</p>
+            <p>Substack, Beehiiv & Ghost are subscribed automatically via their public APIs. Mailchimp, ConvertKit & Buttondown open with your email pre-filled. All other sites open in a new tab — you click Subscribe. CAPTCHAs on opened pages must be solved by you.</p>
           </div>
         </div>
 
