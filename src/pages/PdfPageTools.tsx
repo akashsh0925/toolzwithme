@@ -71,7 +71,7 @@ const PdfPageTools = () => {
       const toExtract = parseRanges(extractPages, src.getPageCount());
       const copied = await newDoc.copyPages(src, toExtract.map(p => p - 1));
       copied.forEach(p => newDoc.addPage(p));
-      setResult(await newDoc.save());
+      setResult(new Uint8Array(await newDoc.save()));
       toast.success(`Extracted ${toExtract.length} page(s)`);
     } catch (e: any) { toast.error(e.message); }
     setProcessing(false);
