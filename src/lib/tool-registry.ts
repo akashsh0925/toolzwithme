@@ -37,11 +37,11 @@ export interface ToolCategory {
 const allTools: ToolDef[] = [
   // ─── CATEGORY: PDF ───
   { id: "pdf-link-genie", title: "PDF Link Extractor", description: "Extract all links from any PDF.", icon: FileText, route: "/pdf-link-genie", category: "pdf", phase: 0, available: true },
-  { id: "pdf-password-remover", title: "PDF Password Remover", description: "Remove password protection from PDFs.", icon: Unlock, route: "/pdf-password-remover", category: "pdf", phase: 1, available: false },
-  { id: "pdf-ocr", title: "PDF OCR", description: "Add searchable text layer to scanned PDFs.", icon: ScanSearch, route: "/pdf-ocr", category: "pdf", phase: 1, available: false },
-  { id: "pdf-page-tools", title: "PDF Page Tools", description: "Delete, reorder, rotate & extract pages.", icon: Layers, route: "/pdf-page-tools", category: "pdf", phase: 1, available: false },
-  { id: "pdf-form-filler", title: "PDF Form Filler", description: "Fill in interactive PDF form fields.", icon: FormInput, route: "/pdf-form-filler", category: "pdf", phase: 1, available: false },
-  { id: "pdf-to-office", title: "PDF to Office", description: "Convert PDF to Word, Excel, or PowerPoint.", icon: FileOutput, route: "/pdf-to-office", category: "pdf", phase: 1, available: false },
+  { id: "pdf-password-remover", title: "PDF Password Remover", description: "Remove password protection from PDFs.", icon: Unlock, route: "/pdf-password-remover", category: "pdf", phase: 1, available: true },
+  { id: "pdf-ocr", title: "PDF OCR", description: "Add searchable text layer to scanned PDFs.", icon: ScanSearch, route: "/pdf-ocr", category: "pdf", phase: 1, available: true },
+  { id: "pdf-page-tools", title: "PDF Page Tools", description: "Delete, reorder, rotate & extract pages.", icon: Layers, route: "/pdf-page-tools", category: "pdf", phase: 1, available: true },
+  { id: "pdf-form-filler", title: "PDF Form Filler", description: "Fill in interactive PDF form fields.", icon: FormInput, route: "/pdf-form-filler", category: "pdf", phase: 1, available: true },
+  { id: "pdf-to-office", title: "PDF to Office", description: "Convert PDF to HTML or text.", icon: FileOutput, route: "/pdf-to-office", category: "pdf", phase: 1, available: true },
   { id: "pdf-compressor", title: "PDF Compressor", description: "Reduce PDF file size with quality options.", icon: Minimize2, route: "/pdf-compressor", category: "pdf", phase: 4, available: false },
   { id: "pdf-compare", title: "PDF Compare", description: "Side-by-side diff of two PDF files.", icon: Scale, route: "/pdf-compare", category: "pdf", phase: 4, available: false },
   { id: "pdf-redaction", title: "PDF Redaction", description: "Permanently black out sensitive content.", icon: EyeOff, route: "/pdf-redaction", category: "pdf", phase: 4, available: false },
