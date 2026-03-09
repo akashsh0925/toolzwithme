@@ -5,6 +5,7 @@ import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
 import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
 import cardGenLogo from "@/assets/card-generator-logo.png";
+import tempEmailLogo from "@/assets/temp-email-logo.png";
 
 const tools = [
   {
