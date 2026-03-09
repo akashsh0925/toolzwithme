@@ -72,8 +72,14 @@ const Home = () => {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-6 text-center text-muted-foreground text-sm">
-        © {new Date().getFullYear()} ToolzWithMe. All rights reserved.
+      <footer className="border-t border-border py-8 text-center text-muted-foreground text-sm space-y-2">
+        <div className="flex items-center justify-center gap-4 flex-wrap">
+          <Link to="/about" className="hover:text-foreground">About</Link>
+          <Link to="/contact" className="hover:text-foreground">Contact</Link>
+          <Link to="/privacy" className="hover:text-foreground">Privacy Policy</Link>
+          <Link to="/terms" className="hover:text-foreground">Terms of Service</Link>
+        </div>
+        <p>© {new Date().getFullYear()} ToolzWithMe. All rights reserved.</p>
       </footer>
     </div>
   );
