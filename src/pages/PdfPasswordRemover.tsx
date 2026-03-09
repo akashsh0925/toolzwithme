@@ -51,7 +51,7 @@ const PdfPasswordRemover = () => {
 
       // Re-save without encryption
       const newBytes = await pdfDoc.save();
-      setResult(newBytes);
+      setResult(new Uint8Array(newBytes));
       toast.success("PDF unlocked successfully!");
     } catch (e: any) {
       setError(e.message || "Failed to process PDF");
