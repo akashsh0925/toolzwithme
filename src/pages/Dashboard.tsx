@@ -5,6 +5,7 @@ import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
 import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
 import cardGenLogo from "@/assets/card-generator-logo.png";
+import tempEmailLogo from "@/assets/temp-email-logo.png";
 
 const tools = [
   {
@@ -42,7 +43,13 @@ const tools = [
     url: "/card-generator",
     logo: cardGenLogo,
   },
-  { title: "Coming Soon", description: "New tool in the works.", type: "coming-soon" as const },
+  {
+    title: "Temp Email",
+    description: "Generate disposable email addresses with a live inbox for sign-ups and testing.",
+    type: "app" as const,
+    url: "/temp-email",
+    logo: tempEmailLogo,
+  },
 ];
 
 const Dashboard = () => {

@@ -11,6 +11,7 @@ import ThemePreview from "./pages/ThemePreview";
 import MultiUrlOpener from "./pages/MultiUrlOpener";
 import NewsletterSubscriber from "./pages/NewsletterSubscriber";
 import CardGenerator from "./pages/CardGenerator";
+import TempEmail from "./pages/TempEmail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/theme-preview" element={<ThemePreview />} />
           <Route path="/newsletter" element={<NewsletterSubscriber />} />
           <Route path="/card-generator" element={<CardGenerator />} />
+          <Route path="/temp-email" element={<TempEmail />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
