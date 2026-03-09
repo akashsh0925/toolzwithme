@@ -57,7 +57,7 @@ const AppSidebar = () => {
         )}
 
         {filtered.map((cat) => (
-          <SidebarGroup key={cat.id} defaultOpen>
+          <SidebarGroup key={cat.id}>
             <SidebarGroupLabel className="text-[10px] uppercase tracking-wider text-muted-foreground font-display">
               {!collapsed && (
                 <>

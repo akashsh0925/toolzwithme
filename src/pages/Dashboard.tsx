@@ -1,62 +1,32 @@
-import { Clock, ArrowRight } from "lucide-react";
+import { ArrowRight, Search, Star } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Input } from "@/components/ui/input";
+import { Badge } from "@/components/ui/badge";
 import UserMenu from "@/components/UserMenu";
-import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
-import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
-import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
-import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
-import cardGenLogo from "@/assets/card-generator-logo.png";
-import tempEmailLogo from "@/assets/temp-email-logo.png";
-
-const tools = [
-  {
-    title: "PDF Link Genie",
-    description: "Extract all links from any PDF document in seconds.",
-    type: "app" as const,
-    url: "/pdf-link-genie",
-    logo: pdfLinkGenieLogo,
-  },
-  {
-    title: "GDrive DL",
-    description: "Generate direct download links for Google Drive files.",
-    type: "app" as const,
-    url: "/gdrive",
-    logo: gdriveDlLogo,
-  },
-  {
-    title: "Multi URL Opener",
-    description: "Open multiple URLs at once — paste a list and go.",
-    type: "app" as const,
-    url: "/multi-url",
-    logo: multiUrlLogo,
-  },
-  {
-    title: "NewsletterBot",
-    description: "Bulk-subscribe to newsletters automatically via API or assisted pre-fill.",
-    type: "app" as const,
-    url: "/newsletter",
-    logo: newsletterLogo,
-  },
-  {
-    title: "Card Gen",
-    description: "Generate Luhn-valid test card numbers for payment gateway testing.",
-    type: "app" as const,
-    url: "/card-generator",
-    logo: cardGenLogo,
-  },
-  {
-    title: "Temp Email",
-    description: "Generate disposable email addresses with a live inbox for sign-ups and testing.",
-    type: "app" as const,
-    url: "/temp-email",
-    logo: tempEmailLogo,
-  },
-];
+import { categories } from "@/lib/tool-registry";
+import { useState, useMemo } from "react";
 
 const Dashboard = () => {
+  const [search, setSearch] = useState("");
+
+  const filtered = useMemo(() => {
+    if (!search.trim()) return categories;
+    const q = search.toLowerCase();
+    return categories
+      .map((cat) => ({
+        ...cat,
+        tools: cat.tools.filter(
+          (t) =>
+            t.title.toLowerCase().includes(q) ||
+            t.description.toLowerCase().includes(q)
+        ),
+      }))
+      .filter((cat) => cat.tools.length > 0);
+  }, [search]);
+
   return (
-    <div className="min-h-screen bg-background px-4 py-8 md:py-16">
-      <div className="max-w-5xl mx-auto space-y-8">
+    <div className="min-h-screen bg-background px-4 py-8 md:py-12">
+      <div className="max-w-6xl mx-auto space-y-8">
         {/* Header */}
         <div className="flex items-start justify-between">
           <div className="space-y-2">
@@ -64,53 +34,83 @@ const Dashboard = () => {
               Tools
             </h1>
             <p className="text-muted-foreground text-sm md:text-base max-w-lg">
-              Productivity utilities that run entirely in your browser. Pick a tool to get started.
+              Privacy-first utilities that run entirely in your browser. Pick a tool to get started.
             </p>
           </div>
           <UserMenu />
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {tools.map((tool, i) =>
-            tool.type === "app" ? (
-              <Link
-                key={i}
-                to={tool.url!}
-                className="group rounded-2xl border border-border bg-card p-5 flex flex-col gap-4 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-200"
-              >
-                <div className="w-12 h-12 rounded-xl bg-secondary flex items-center justify-center overflow-hidden">
-                  <img
-                    src={tool.logo}
-                    alt={tool.title}
-                    className="w-8 h-8 object-contain"
-                  />
-                </div>
-                <div className="space-y-1 flex-1">
-                  <h2 className="text-base font-display font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {tool.title}
-                  </h2>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {tool.description}
-                  </p>
-                </div>
-                <div className="flex items-center gap-1 text-xs font-display text-muted-foreground group-hover:text-primary transition-colors">
-                  Open tool <ArrowRight className="w-3 h-3" />
-                </div>
-              </Link>
-            ) : (
-              <div
-                key={i}
-                className="rounded-2xl border border-dashed border-border bg-card/50 p-5 flex flex-col items-center justify-center gap-2 min-h-[180px]"
-              >
-                <Clock className="w-6 h-6 text-muted-foreground/40" />
-                <span className="text-xs font-display text-muted-foreground uppercase tracking-wider">
-                  Coming Soon
-                </span>
-              </div>
-            )
-          )}
+        {/* Search */}
+        <div className="relative max-w-md">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Input
+            placeholder="Search tools…"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            className="pl-10 bg-card border-border"
+          />
         </div>
+
+        {/* Categories */}
+        {filtered.map((cat) => (
+          <section key={cat.id} className="space-y-3">
+            <div className="flex items-center gap-2">
+              <cat.icon className="w-4 h-4 text-primary" />
+              <h2 className="text-sm font-display font-semibold uppercase tracking-wider text-muted-foreground">
+                {cat.label}
+              </h2>
+              <Badge variant="secondary" className="text-[10px]">
+                {cat.tools.filter(t => t.available).length}/{cat.tools.length}
+              </Badge>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+              {cat.tools.map((tool) =>
+                tool.available ? (
+                  <Link
+                    key={tool.id}
+                    to={tool.route}
+                    className="group rounded-xl border border-border bg-card p-4 flex flex-col gap-3 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-200"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                        <tool.icon className="w-4 h-4 text-primary" />
+                      </div>
+                      <h3 className="text-sm font-display font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {tool.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">
+                      {tool.description}
+                    </p>
+                    <div className="flex items-center gap-1 text-[11px] font-display text-muted-foreground group-hover:text-primary transition-colors mt-auto">
+                      Open <ArrowRight className="w-3 h-3" />
+                    </div>
+                  </Link>
+                ) : (
+                  <div
+                    key={tool.id}
+                    className="rounded-xl border border-dashed border-border bg-card/30 p-4 flex flex-col gap-3 opacity-50"
+                  >
+                    <div className="flex items-center gap-3">
+                      <div className="w-9 h-9 rounded-lg bg-secondary flex items-center justify-center">
+                        <tool.icon className="w-4 h-4 text-muted-foreground" />
+                      </div>
+                      <h3 className="text-sm font-display font-medium text-muted-foreground">
+                        {tool.title}
+                      </h3>
+                    </div>
+                    <p className="text-xs text-muted-foreground/60 leading-relaxed line-clamp-2">
+                      {tool.description}
+                    </p>
+                    <Badge variant="outline" className="text-[10px] w-fit mt-auto">
+                      Coming Soon
+                    </Badge>
+                  </div>
+                )
+              )}
+            </div>
+          </section>
+        ))}
       </div>
     </div>
   );
