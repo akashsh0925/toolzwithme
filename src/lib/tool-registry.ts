@@ -49,8 +49,8 @@ const allTools: ToolDef[] = [
   { id: "pdf-image-extractor", title: "PDF Image Extractor", description: "Extract all embedded images from a PDF.", icon: ImageDown, route: "/pdf-image-extractor", category: "pdf", phase: 4, available: false },
 
   // ─── CATEGORY: IMAGE & MEDIA ───
-  { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC images to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: false },
-  { id: "image-batch", title: "Image Batch Processor", description: "Resize, crop, convert images in bulk.", icon: ImagePlus, route: "/image-batch", category: "image", phase: 1, available: false },
+  { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC images to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: true },
+  { id: "image-batch", title: "Image Batch Processor", description: "Resize, crop, convert images in bulk.", icon: ImagePlus, route: "/image-batch", category: "image", phase: 1, available: true },
   { id: "glitch-art", title: "Glitch Art Generator", description: "Create retro glitch effects on images.", icon: Sparkles, route: "/glitch-art", category: "image", phase: 4, available: false },
   { id: "retro-text", title: "Retro Text Effects", description: "ASCII, vaporwave, zalgo & more.", icon: Type, route: "/retro-text", category: "image", phase: 4, available: false },
   { id: "fake-screenshot", title: "Fake Screenshot", description: "Create mockup screenshots of social posts.", icon: Smartphone, route: "/fake-screenshot", category: "image", phase: 4, available: false },
