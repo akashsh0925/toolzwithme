@@ -4,6 +4,7 @@ import pdfLinkGenieLogo from "@/assets/pdf-link-genie-logo.png";
 import gdriveDlLogo from "@/assets/gdrive-dl-logo.png";
 import multiUrlLogo from "@/assets/multi-url-opener-logo.png";
 import newsletterLogo from "@/assets/newsletter-subscriber-logo.png";
+import cardGenLogo from "@/assets/card-generator-logo.png";
 
 const tools = [
   {
