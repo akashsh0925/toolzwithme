@@ -234,7 +234,7 @@ const NewsletterSubscriber = () => {
 
           <div className="rounded-lg bg-secondary/50 border border-border p-3 text-xs text-muted-foreground space-y-1">
             <p className="font-display font-semibold text-foreground uppercase tracking-wider text-[10px]">ℹ️ How it works</p>
-            <p>Substack & Beehiiv are subscribed automatically via their public APIs. Mailchimp opens with your email pre-filled. All other sites open in a new tab — you click Subscribe. CAPTCHAs on opened pages must be solved by you.</p>
+            <p>Substack, Beehiiv & Ghost are subscribed automatically via their public APIs. Mailchimp, ConvertKit & Buttondown open with your email pre-filled. All other sites open in a new tab — you click Subscribe. CAPTCHAs on opened pages must be solved by you.</p>
           </div>
         </div>
 
