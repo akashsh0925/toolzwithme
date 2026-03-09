@@ -11,6 +11,7 @@ import ThemePreview from "./pages/ThemePreview";
 import MultiUrlOpener from "./pages/MultiUrlOpener";
 import NewsletterSubscriber from "./pages/NewsletterSubscriber";
 import CardGenerator from "./pages/CardGenerator";
+import TempEmail from "./pages/TempEmail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
