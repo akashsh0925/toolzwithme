@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import ToolLayout from "@/components/ToolLayout";
 import { Link2, Shield, Zap } from "lucide-react";
 import { PDFDropzone } from "@/components/pdf/PDFDropzone";
 import { LinkTable } from "@/components/pdf/LinkTable";
