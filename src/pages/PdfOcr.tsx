@@ -19,7 +19,8 @@ const LANGUAGES = [
   { value: "ara", label: "Arabic" },
 ];
 
-async function loadPdfJs() {
+async function loadPdfJs(): Promise<any> {
+  // @ts-ignore - dynamic import from CDN
   const pdfjsLib = await import(/* @vite-ignore */ 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.mjs');
   pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';
   return pdfjsLib;
