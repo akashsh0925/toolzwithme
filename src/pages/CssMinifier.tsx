@@ -16,7 +16,8 @@ const CssMinifier = () => {
     css = css.replace(/;}/g, "}"); // remove last semicolon
     css = css.trim();
     setOutput(css);
-    toast.success(`Minified: ${input.length} → ${css.length} bytes (${Math.round((1 - css.length / input.length) * 100)}% smaller)`);
+    const pct = input.length > 0 ? Math.round((1 - css.length / input.length) * 100) : 0;
+    toast.success(`Minified: ${input.length} → ${css.length} bytes (${pct}% smaller)`);
   };
 
   const beautify = () => {

@@ -22,7 +22,7 @@ function generateLorem(count: number, unit: "paragraphs" | "sentences" | "words"
   let result = "";
   if (unit === "words") {
     const words = Array.from({ length: count }, () => WORDS[Math.floor(Math.random() * WORDS.length)]);
-    if (startWithLorem) { words[0] = "Lorem"; words[1] = "ipsum"; }
+    if (startWithLorem) { words[0] = "Lorem"; if (count > 1) words[1] = "ipsum"; }
     result = words.join(" ") + ".";
   } else if (unit === "sentences") {
     const sentences = Array.from({ length: count }, () => genSentence(6 + Math.floor(Math.random() * 8)));
