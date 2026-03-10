@@ -111,7 +111,7 @@ const PdfSignature = () => {
           <p className="text-sm text-muted-foreground">Draw or type a signature and apply it to the last page of your PDF.</p>
         </div>
 
-        <div onDrop={(e) => { e.preventDefault(); e.dataTransfer.files[0] && setFile(e.dataTransfer.files[0]); }} onDragOver={(e) => e.preventDefault()}
+        <div onDrop={(e) => { e.preventDefault(); const f = e.dataTransfer.files[0]; if (f?.type === "application/pdf") setFile(f); else if (f) toast.error("Please select a PDF"); }} onDragOver={(e) => e.preventDefault()}
           className="border-2 border-dashed border-border rounded-xl p-8 text-center hover:border-primary/40 transition-colors cursor-pointer"
           onClick={() => document.getElementById("sig-input")?.click()}>
           <input id="sig-input" type="file" accept=".pdf" className="hidden" onChange={(e) => e.target.files?.[0] && setFile(e.target.files[0])} />

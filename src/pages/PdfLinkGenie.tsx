@@ -1,4 +1,5 @@
 import { useState, useCallback } from "react";
+import ToolLayout from "@/components/ToolLayout";
 import { Link2, Shield, Zap } from "lucide-react";
 import { PDFDropzone } from "@/components/pdf/PDFDropzone";
 import { LinkTable } from "@/components/pdf/LinkTable";
@@ -45,6 +46,7 @@ const PdfLinkGenie = () => {
   const selectedLinks = result?.links.filter(link => selectedIds.has(link.id)) ?? [];
 
   return (
+    <ToolLayout title="PDF Link Extractor" toolName="pdf-link-genie">
     <div className="min-h-screen">
       <header className="border-b border-border bg-card/50 backdrop-blur-sm sticky top-0 z-50">
         <div className="container max-w-6xl mx-auto px-4 py-4">
@@ -114,6 +116,7 @@ const PdfLinkGenie = () => {
         </div>
       </footer>
     </div>
+    </ToolLayout>
   );
 };
 
