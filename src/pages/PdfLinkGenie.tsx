@@ -115,6 +115,7 @@ const PdfLinkGenie = () => {
         </div>
       </footer>
     </div>
+    </ToolLayout>
   );
 };
 
