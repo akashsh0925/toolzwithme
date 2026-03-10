@@ -1,9 +1,9 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useCallback } from "react";
 import ToolLayout from "@/components/ToolLayout";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Progress } from "@/components/ui/progress";
-import { Upload, Download, ScanSearch, Copy, CheckCircle } from "lucide-react";
+import { Download, ScanSearch, Copy } from "lucide-react";
 import { toast } from "sonner";
 
 const LANGUAGES = [
@@ -18,6 +18,33 @@ const LANGUAGES = [
   { value: "chi_sim", label: "Chinese (Simplified)" },
   { value: "ara", label: "Arabic" },
 ];
+
+async function loadPdfJs(): Promise<any> {
+  // @ts-ignore - dynamic import from CDN
+  const pdfjsLib = await import(/* @vite-ignore */ 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.min.mjs');
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/4.0.379/pdf.worker.min.mjs';
+  return pdfjsLib;
+}
+
+async function pdfToImages(file: File): Promise<HTMLCanvasElement[]> {
+  const pdfjs = await loadPdfJs();
+  const arrayBuffer = await file.arrayBuffer();
+  const pdf = await pdfjs.getDocument({ data: arrayBuffer }).promise;
+  const canvases: HTMLCanvasElement[] = [];
+
+  for (let i = 1; i <= pdf.numPages; i++) {
+    const page = await pdf.getPage(i);
+    const viewport = page.getViewport({ scale: 2 }); // higher scale = better OCR
+    const canvas = document.createElement("canvas");
+    canvas.width = viewport.width;
+    canvas.height = viewport.height;
+    const ctx = canvas.getContext("2d")!;
+    await page.render({ canvasContext: ctx, viewport }).promise;
+    canvases.push(canvas);
+  }
+
+  return canvases;
+}
 
 const PdfOcr = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -38,35 +65,51 @@ const PdfOcr = () => {
     if (!file) return;
     setProcessing(true);
     setProgress(0);
-    setStatusMsg("Loading OCR engine…");
+    setExtractedText("");
 
     try {
       const Tesseract = await import("tesseract.js");
+      const isPdf = file.type === "application/pdf";
+      let allText = "";
 
-      let imageSource: string | Blob = file;
+      if (isPdf) {
+        setStatusMsg("Rendering PDF pages…");
+        const canvases = await pdfToImages(file);
+        const totalPages = canvases.length;
 
-      // If PDF, we need to render it to an image first using canvas
-      if (file.type === "application/pdf") {
-        setStatusMsg("Note: For best results with PDFs, convert to image first. Processing as-is…");
-        // Tesseract can handle PDF data in some cases, but works best with images
-        // For now, pass the file directly
+        for (let i = 0; i < totalPages; i++) {
+          setStatusMsg(`OCR on page ${i + 1} of ${totalPages}…`);
+          const result = await Tesseract.recognize(canvases[i], language, {
+            logger: (m: any) => {
+              if (m.status === "recognizing text") {
+                const pageProgress = (i + m.progress) / totalPages;
+                setProgress(Math.round(pageProgress * 100));
+              }
+            },
+          });
+          allText += `--- Page ${i + 1} ---\n${result.data.text}\n\n`;
+        }
+      } else {
+        setStatusMsg("Recognizing text…");
+        const result = await Tesseract.recognize(file, language, {
+          logger: (m: any) => {
+            if (m.status === "recognizing text") {
+              setProgress(Math.round(m.progress * 100));
+              setStatusMsg(`Recognizing text… ${Math.round(m.progress * 100)}%`);
+            }
+          },
+        });
+        allText = result.data.text;
       }
 
-      setStatusMsg("Recognizing text…");
-      const result = await Tesseract.recognize(imageSource, language, {
-        logger: (m: any) => {
-          if (m.status === "recognizing text") {
-            setProgress(Math.round(m.progress * 100));
-            setStatusMsg(`Recognizing text… ${Math.round(m.progress * 100)}%`);
-          } else {
-            setStatusMsg(m.status || "Processing…");
-          }
-        },
-      });
-
-      setExtractedText(result.data.text);
-      toast.success(`OCR complete! Confidence: ${Math.round(result.data.confidence)}%`);
+      setExtractedText(allText.trim());
+      if (allText.trim().length < 20) {
+        toast.info("Very little text found — the document may need a clearer scan.");
+      } else {
+        toast.success("OCR complete!");
+      }
     } catch (e: any) {
+      console.error("OCR error:", e);
       toast.error("OCR failed: " + e.message);
     }
     setProcessing(false);
