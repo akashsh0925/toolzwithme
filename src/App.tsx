@@ -60,6 +60,7 @@ const PasswordGenerator = lazy(() => import("./pages/PasswordGenerator"));
 const PomodoroTimer = lazy(() => import("./pages/PomodoroTimer"));
 const UnitConverter = lazy(() => import("./pages/UnitConverter"));
 const WordCounter = lazy(() => import("./pages/WordCounter"));
+const LinkExtractor = lazy(() => import("./pages/LinkExtractor"));
 
 const queryClient = new QueryClient();
 
