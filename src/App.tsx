@@ -119,6 +119,7 @@ const App = () => (
               <Route path="/pomodoro-timer" element={<PomodoroTimer />} />
               <Route path="/unit-converter" element={<UnitConverter />} />
               <Route path="/word-counter" element={<WordCounter />} />
+              <Route path="/link-extractor" element={<LinkExtractor />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

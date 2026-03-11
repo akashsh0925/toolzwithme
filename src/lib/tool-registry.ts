@@ -47,6 +47,7 @@ const allTools: ToolDef[] = [
   { id: "text-diff", title: "Text Diff", description: "Compare two text blocks side-by-side.", icon: GitCompare, route: "/text-diff", category: "text", phase: 1, available: true },
   { id: "regex-tester", title: "Regex Tester", description: "Test regex with live highlighting.", icon: Regex, route: "/regex-tester", category: "text", phase: 5, available: true },
   { id: "base64-converter", title: "Base64 Converter", description: "Encode/decode text & files.", icon: Binary, route: "/base64-converter", category: "text", phase: 5, available: true },
+  { id: "link-extractor", title: "Link Extractor", description: "Extract links from pasted text.", icon: Link2, route: "/link-extractor", category: "text", phase: 5, available: true },
   { id: "url-encoder", title: "URL Encoder", description: "Encode/decode URL components.", icon: LinkIcon, route: "/url-encoder", category: "text", phase: 5, available: true },
   { id: "html-entity-encoder", title: "HTML Entity Encoder", description: "Convert special chars to entities.", icon: Hash, route: "/html-entity-encoder", category: "text", phase: 5, available: true },
   { id: "color-converter", title: "Color Converter", description: "HEX, RGB, HSL with contrast check.", icon: Paintbrush, route: "/color-converter", category: "text", phase: 5, available: true },
