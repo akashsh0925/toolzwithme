@@ -61,6 +61,11 @@ const PomodoroTimer = lazy(() => import("./pages/PomodoroTimer"));
 const UnitConverter = lazy(() => import("./pages/UnitConverter"));
 const WordCounter = lazy(() => import("./pages/WordCounter"));
 const LinkExtractor = lazy(() => import("./pages/LinkExtractor"));
+const PdfWatermark = lazy(() => import("./pages/PdfWatermark"));
+const PdfMetadataEditor = lazy(() => import("./pages/PdfMetadataEditor"));
+const ImageToPdf = lazy(() => import("./pages/ImageToPdf"));
+const PdfPageNumbers = lazy(() => import("./pages/PdfPageNumbers"));
+const PdfFlatten = lazy(() => import("./pages/PdfFlatten"));
 
 const queryClient = new QueryClient();
 
@@ -120,6 +125,11 @@ const App = () => (
               <Route path="/unit-converter" element={<UnitConverter />} />
               <Route path="/word-counter" element={<WordCounter />} />
               <Route path="/link-extractor" element={<LinkExtractor />} />
+              <Route path="/pdf-watermark" element={<PdfWatermark />} />
+              <Route path="/pdf-metadata-editor" element={<PdfMetadataEditor />} />
+              <Route path="/image-to-pdf" element={<ImageToPdf />} />
+              <Route path="/pdf-page-numbers" element={<PdfPageNumbers />} />
+              <Route path="/pdf-flatten" element={<PdfFlatten />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
