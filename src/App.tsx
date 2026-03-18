@@ -61,6 +61,11 @@ const PomodoroTimer = lazy(() => import("./pages/PomodoroTimer"));
 const UnitConverter = lazy(() => import("./pages/UnitConverter"));
 const WordCounter = lazy(() => import("./pages/WordCounter"));
 const LinkExtractor = lazy(() => import("./pages/LinkExtractor"));
+const PdfWatermark = lazy(() => import("./pages/PdfWatermark"));
+const PdfMetadataEditor = lazy(() => import("./pages/PdfMetadataEditor"));
+const ImageToPdf = lazy(() => import("./pages/ImageToPdf"));
+const PdfPageNumbers = lazy(() => import("./pages/PdfPageNumbers"));
+const PdfFlatten = lazy(() => import("./pages/PdfFlatten"));
 
 const queryClient = new QueryClient();
 
