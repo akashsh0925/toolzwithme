@@ -8,6 +8,7 @@ import {
   Sparkles, Type, Smartphone, Palette, Star as StarIcon, Music, Film,
   Mail, ShieldX,
   Regex, Binary, Link as LinkIcon, Paintbrush, AlignLeft, FileCode, Hash,
+  Droplets, FileImage, Info, SquareStack,
 } from "lucide-react";
 
 export interface ToolDef {
