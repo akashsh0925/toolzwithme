@@ -31,6 +31,11 @@ const allTools: ToolDef[] = [
   { id: "pdf-redaction", title: "PDF Redaction", description: "Permanently black out content.", icon: EyeOff, route: "/pdf-redaction", category: "pdf", phase: 4, available: true },
   { id: "pdf-signature", title: "PDF Signature", description: "Draw or type signatures on PDFs.", icon: PenTool, route: "/pdf-signature", category: "pdf", phase: 4, available: true },
   { id: "pdf-image-extractor", title: "PDF Image Extractor", description: "Extract embedded images.", icon: ImageDown, route: "/pdf-image-extractor", category: "pdf", phase: 4, available: true },
+  { id: "pdf-watermark", title: "PDF Watermark", description: "Add text watermarks with opacity & rotation.", icon: Droplets, route: "/pdf-watermark", category: "pdf", phase: 5, available: true },
+  { id: "pdf-metadata-editor", title: "PDF Metadata Editor", description: "Edit title, author, keywords.", icon: Info, route: "/pdf-metadata-editor", category: "pdf", phase: 5, available: true },
+  { id: "pdf-page-numbers", title: "Page Number Stamper", description: "Add page numbers with custom format.", icon: Hash, route: "/pdf-page-numbers", category: "pdf", phase: 5, available: true },
+  { id: "pdf-flatten", title: "PDF Flatten", description: "Flatten form fields & annotations.", icon: SquareStack, route: "/pdf-flatten", category: "pdf", phase: 5, available: true },
+  { id: "image-to-pdf", title: "Image to PDF", description: "Combine images into a single PDF.", icon: FileImage, route: "/image-to-pdf", category: "pdf", phase: 5, available: true },
 
   // IMAGE & MEDIA
   { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: true },

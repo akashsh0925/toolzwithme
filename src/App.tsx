@@ -125,6 +125,11 @@ const App = () => (
               <Route path="/unit-converter" element={<UnitConverter />} />
               <Route path="/word-counter" element={<WordCounter />} />
               <Route path="/link-extractor" element={<LinkExtractor />} />
+              <Route path="/pdf-watermark" element={<PdfWatermark />} />
+              <Route path="/pdf-metadata-editor" element={<PdfMetadataEditor />} />
+              <Route path="/image-to-pdf" element={<ImageToPdf />} />
+              <Route path="/pdf-page-numbers" element={<PdfPageNumbers />} />
+              <Route path="/pdf-flatten" element={<PdfFlatten />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
