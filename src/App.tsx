@@ -66,6 +66,16 @@ const PdfMetadataEditor = lazy(() => import("./pages/PdfMetadataEditor"));
 const ImageToPdf = lazy(() => import("./pages/ImageToPdf"));
 const PdfPageNumbers = lazy(() => import("./pages/PdfPageNumbers"));
 const PdfFlatten = lazy(() => import("./pages/PdfFlatten"));
+const PdfMerge = lazy(() => import("./pages/PdfMerge"));
+const PdfSplit = lazy(() => import("./pages/PdfSplit"));
+const PdfToImage = lazy(() => import("./pages/PdfToImage"));
+const PdfEncrypt = lazy(() => import("./pages/PdfEncrypt"));
+const PdfCrop = lazy(() => import("./pages/PdfCrop"));
+const PdfGrayscale = lazy(() => import("./pages/PdfGrayscale"));
+const PdfBlankPage = lazy(() => import("./pages/PdfBlankPage"));
+const PdfHeaderFooter = lazy(() => import("./pages/PdfHeaderFooter"));
+const PdfImageStamp = lazy(() => import("./pages/PdfImageStamp"));
+const PdfPageSize = lazy(() => import("./pages/PdfPageSize"));
 
 const queryClient = new QueryClient();
 
@@ -130,6 +140,16 @@ const App = () => (
               <Route path="/image-to-pdf" element={<ImageToPdf />} />
               <Route path="/pdf-page-numbers" element={<PdfPageNumbers />} />
               <Route path="/pdf-flatten" element={<PdfFlatten />} />
+              <Route path="/pdf-merge" element={<PdfMerge />} />
+              <Route path="/pdf-split" element={<PdfSplit />} />
+              <Route path="/pdf-to-image" element={<PdfToImage />} />
+              <Route path="/pdf-encrypt" element={<PdfEncrypt />} />
+              <Route path="/pdf-crop" element={<PdfCrop />} />
+              <Route path="/pdf-grayscale" element={<PdfGrayscale />} />
+              <Route path="/pdf-blank-page" element={<PdfBlankPage />} />
+              <Route path="/pdf-header-footer" element={<PdfHeaderFooter />} />
+              <Route path="/pdf-image-stamp" element={<PdfImageStamp />} />
+              <Route path="/pdf-page-size" element={<PdfPageSize />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

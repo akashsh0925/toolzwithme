@@ -9,6 +9,7 @@ import {
   Mail, ShieldX,
   Regex, Binary, Link as LinkIcon, Paintbrush, AlignLeft, FileCode, Hash,
   Droplets, FileImage, Info, SquareStack,
+  Merge, Scissors, ImageIcon, Lock, Crop, Contrast, FilePlus, Heading, Stamp, Maximize,
 } from "lucide-react";
 
 export interface ToolDef {
@@ -36,6 +37,16 @@ const allTools: ToolDef[] = [
   { id: "pdf-page-numbers", title: "Page Number Stamper", description: "Add page numbers with custom format.", icon: Hash, route: "/pdf-page-numbers", category: "pdf", phase: 5, available: true },
   { id: "pdf-flatten", title: "PDF Flatten", description: "Flatten form fields & annotations.", icon: SquareStack, route: "/pdf-flatten", category: "pdf", phase: 5, available: true },
   { id: "image-to-pdf", title: "Image to PDF", description: "Combine images into a single PDF.", icon: FileImage, route: "/image-to-pdf", category: "pdf", phase: 5, available: true },
+  { id: "pdf-merge", title: "PDF Merge", description: "Combine multiple PDFs into one.", icon: Merge, route: "/pdf-merge", category: "pdf", phase: 6, available: true },
+  { id: "pdf-split", title: "PDF Split", description: "Split a PDF into separate files.", icon: Scissors, route: "/pdf-split", category: "pdf", phase: 6, available: true },
+  { id: "pdf-to-image", title: "PDF to Image", description: "Convert pages to PNG or JPG.", icon: ImageIcon, route: "/pdf-to-image", category: "pdf", phase: 6, available: true },
+  { id: "pdf-encrypt", title: "PDF Encrypt", description: "Add password protection.", icon: Lock, route: "/pdf-encrypt", category: "pdf", phase: 6, available: true },
+  { id: "pdf-crop", title: "PDF Crop", description: "Adjust margins and crop pages.", icon: Crop, route: "/pdf-crop", category: "pdf", phase: 6, available: true },
+  { id: "pdf-grayscale", title: "PDF Grayscale", description: "Convert color PDFs to grayscale.", icon: Contrast, route: "/pdf-grayscale", category: "pdf", phase: 6, available: true },
+  { id: "pdf-blank-page", title: "Blank Page Inserter", description: "Insert blank pages into a PDF.", icon: FilePlus, route: "/pdf-blank-page", category: "pdf", phase: 6, available: true },
+  { id: "pdf-header-footer", title: "PDF Header & Footer", description: "Add headers and footers.", icon: Heading, route: "/pdf-header-footer", category: "pdf", phase: 6, available: true },
+  { id: "pdf-image-stamp", title: "PDF Image Stamp", description: "Overlay an image on every page.", icon: Stamp, route: "/pdf-image-stamp", category: "pdf", phase: 6, available: true },
+  { id: "pdf-page-size", title: "Page Size Converter", description: "Convert to different page sizes.", icon: Maximize, route: "/pdf-page-size", category: "pdf", phase: 6, available: true },
 
   // IMAGE & MEDIA
   { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: true },
