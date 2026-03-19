@@ -45,7 +45,7 @@ export default function PdfEncrypt() {
   };
 
   return (
-    <ToolLayout toolId="pdf-encrypt" title="PDF Encrypt" description="Add password protection to PDFs.">
+    <ToolLayout title="PDF Encrypt" toolName="pdf-encrypt">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => setFile(f)} isProcessing={processing} />
         {file && (

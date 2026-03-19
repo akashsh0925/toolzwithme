@@ -75,7 +75,7 @@ export default function PdfImageStamp() {
   };
 
   return (
-    <ToolLayout toolId="pdf-image-stamp" title="PDF Image Stamp" description="Overlay an image on every page.">
+    <ToolLayout title="PDF Image Stamp" toolName="pdf-image-stamp">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => setPdfFile(f)} isProcessing={processing} />
         {pdfFile && (

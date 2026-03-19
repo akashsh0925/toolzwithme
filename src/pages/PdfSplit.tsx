@@ -73,7 +73,7 @@ export default function PdfSplit() {
   };
 
   return (
-    <ToolLayout toolId="pdf-split" title="PDF Split" description="Split a PDF into separate files.">
+    <ToolLayout title="PDF Split" toolName="pdf-split">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={handleFile} isProcessing={processing} />
         {pageCount > 0 && (

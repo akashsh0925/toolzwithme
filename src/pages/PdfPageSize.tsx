@@ -80,7 +80,7 @@ export default function PdfPageSize() {
   };
 
   return (
-    <ToolLayout toolId="pdf-page-size" title="PDF Page Size Converter" description="Convert PDF pages to a different page size.">
+    <ToolLayout title="PDF Page Size Converter" toolName="pdf-page-size">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => setFile(f)} isProcessing={processing} />
         {file && (

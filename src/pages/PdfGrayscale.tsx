@@ -61,7 +61,7 @@ export default function PdfGrayscale() {
   };
 
   return (
-    <ToolLayout toolId="pdf-grayscale" title="PDF Grayscale" description="Convert color PDFs to grayscale.">
+    <ToolLayout title="PDF Grayscale" toolName="pdf-grayscale">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => { setFile(f); }} isProcessing={processing} />
         {file && !processing && (

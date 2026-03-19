@@ -55,7 +55,7 @@ export default function PdfToImage() {
   };
 
   return (
-    <ToolLayout toolId="pdf-to-image" title="PDF to Image" description="Convert PDF pages to PNG or JPG images.">
+    <ToolLayout title="PDF to Image" toolName="pdf-to-image">
       <div className="max-w-3xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => { setFile(f); setImages([]); }} isProcessing={processing} />
         {file && (

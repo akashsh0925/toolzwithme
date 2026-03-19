@@ -67,7 +67,7 @@ export default function PdfBlankPage() {
   };
 
   return (
-    <ToolLayout toolId="pdf-blank-page" title="Blank Page Inserter" description="Insert blank pages into a PDF.">
+    <ToolLayout title="Blank Page Inserter" toolName="pdf-blank-page">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={handleFile} isProcessing={processing} />
         {pageCount > 0 && (

@@ -53,7 +53,7 @@ export default function PdfCrop() {
   };
 
   return (
-    <ToolLayout toolId="pdf-crop" title="PDF Crop" description="Adjust margins and crop PDF pages.">
+    <ToolLayout title="PDF Crop" toolName="pdf-crop">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={handleFile} isProcessing={processing} />
         {pageCount > 0 && (

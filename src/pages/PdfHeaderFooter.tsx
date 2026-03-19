@@ -64,7 +64,7 @@ export default function PdfHeaderFooter() {
   };
 
   return (
-    <ToolLayout toolId="pdf-header-footer" title="PDF Header & Footer" description="Add headers and footers to every page.">
+    <ToolLayout title="PDF Header & Footer" toolName="pdf-header-footer">
       <div className="max-w-2xl mx-auto space-y-6">
         <PDFDropzone onFileSelect={f => setFile(f)} isProcessing={processing} />
         {file && (

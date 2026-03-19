@@ -52,7 +52,7 @@ export default function PdfMerge() {
   };
 
   return (
-    <ToolLayout toolId="pdf-merge" title="PDF Merge" description="Combine multiple PDFs into one.">
+    <ToolLayout title="PDF Merge" toolName="pdf-merge">
       <div className="max-w-2xl mx-auto space-y-6">
         <Card>
           <CardContent className="p-6">
