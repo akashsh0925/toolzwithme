@@ -42,7 +42,7 @@ export default function PdfCrop() {
       }
 
       const out = await doc.save();
-      const blob = new Blob([out.buffer], { type: "application/pdf" });
+      const blob = new Blob([out.buffer as ArrayBuffer], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a"); a.href = url; a.download = `cropped-${file.name}`; a.click();
       URL.revokeObjectURL(url);

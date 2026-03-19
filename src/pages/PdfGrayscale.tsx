@@ -50,7 +50,7 @@ export default function PdfGrayscale() {
       }
 
       const out = await outDoc.save();
-      const blob = new Blob([out.buffer], { type: "application/pdf" });
+      const blob = new Blob([out.buffer as ArrayBuffer], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a"); a.href = url; a.download = `grayscale-${file.name}`; a.click();
       URL.revokeObjectURL(url);

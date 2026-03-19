@@ -26,7 +26,7 @@ export default function PdfSplit() {
   };
 
   const downloadPdf = (data: Uint8Array, name: string) => {
-    const blob = new Blob([data.buffer], { type: "application/pdf" });
+    const blob = new Blob([data.buffer as ArrayBuffer], { type: "application/pdf" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a"); a.href = url; a.download = name; a.click();
     URL.revokeObjectURL(url);
