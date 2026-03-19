@@ -140,6 +140,16 @@ const App = () => (
               <Route path="/image-to-pdf" element={<ImageToPdf />} />
               <Route path="/pdf-page-numbers" element={<PdfPageNumbers />} />
               <Route path="/pdf-flatten" element={<PdfFlatten />} />
+              <Route path="/pdf-merge" element={<PdfMerge />} />
+              <Route path="/pdf-split" element={<PdfSplit />} />
+              <Route path="/pdf-to-image" element={<PdfToImage />} />
+              <Route path="/pdf-encrypt" element={<PdfEncrypt />} />
+              <Route path="/pdf-crop" element={<PdfCrop />} />
+              <Route path="/pdf-grayscale" element={<PdfGrayscale />} />
+              <Route path="/pdf-blank-page" element={<PdfBlankPage />} />
+              <Route path="/pdf-header-footer" element={<PdfHeaderFooter />} />
+              <Route path="/pdf-image-stamp" element={<PdfImageStamp />} />
+              <Route path="/pdf-page-size" element={<PdfPageSize />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
