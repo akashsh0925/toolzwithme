@@ -66,6 +66,16 @@ const PdfMetadataEditor = lazy(() => import("./pages/PdfMetadataEditor"));
 const ImageToPdf = lazy(() => import("./pages/ImageToPdf"));
 const PdfPageNumbers = lazy(() => import("./pages/PdfPageNumbers"));
 const PdfFlatten = lazy(() => import("./pages/PdfFlatten"));
+const PdfMerge = lazy(() => import("./pages/PdfMerge"));
+const PdfSplit = lazy(() => import("./pages/PdfSplit"));
+const PdfToImage = lazy(() => import("./pages/PdfToImage"));
+const PdfEncrypt = lazy(() => import("./pages/PdfEncrypt"));
+const PdfCrop = lazy(() => import("./pages/PdfCrop"));
+const PdfGrayscale = lazy(() => import("./pages/PdfGrayscale"));
+const PdfBlankPage = lazy(() => import("./pages/PdfBlankPage"));
+const PdfHeaderFooter = lazy(() => import("./pages/PdfHeaderFooter"));
+const PdfImageStamp = lazy(() => import("./pages/PdfImageStamp"));
+const PdfPageSize = lazy(() => import("./pages/PdfPageSize"));
 
 const queryClient = new QueryClient();
 
