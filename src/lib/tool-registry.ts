@@ -9,6 +9,7 @@ import {
   Mail, ShieldX,
   Regex, Binary, Link as LinkIcon, Paintbrush, AlignLeft, FileCode, Hash,
   Droplets, FileImage, Info, SquareStack,
+  Merge, Scissors, ImageIcon, Lock, Crop, Contrast, FilePlus, Heading, Stamp, Maximize,
 } from "lucide-react";
 
 export interface ToolDef {
