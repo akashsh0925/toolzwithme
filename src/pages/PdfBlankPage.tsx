@@ -56,7 +56,7 @@ export default function PdfBlankPage() {
       }
 
       const out = await doc.save();
-      const blob = new Blob([out], { type: "application/pdf" });
+      const blob = new Blob([out.buffer], { type: "application/pdf" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a"); a.href = url; a.download = `with-blanks-${file.name}`; a.click();
       URL.revokeObjectURL(url);
