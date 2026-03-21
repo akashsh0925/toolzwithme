@@ -76,6 +76,14 @@ const PdfBlankPage = lazy(() => import("./pages/PdfBlankPage"));
 const PdfHeaderFooter = lazy(() => import("./pages/PdfHeaderFooter"));
 const PdfImageStamp = lazy(() => import("./pages/PdfImageStamp"));
 const PdfPageSize = lazy(() => import("./pages/PdfPageSize"));
+const PdfRotate = lazy(() => import("./pages/PdfRotate"));
+const PdfRemoveAnnotations = lazy(() => import("./pages/PdfRemoveAnnotations"));
+const PdfSanitize = lazy(() => import("./pages/PdfSanitize"));
+const PdfInfo = lazy(() => import("./pages/PdfInfo"));
+const PdfOverlay = lazy(() => import("./pages/PdfOverlay"));
+const PdfNup = lazy(() => import("./pages/PdfNup"));
+const PdfRemoveBlankPages = lazy(() => import("./pages/PdfRemoveBlankPages"));
+const PdfScalePages = lazy(() => import("./pages/PdfScalePages"));
 
 const queryClient = new QueryClient();
 
