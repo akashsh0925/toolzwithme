@@ -76,6 +76,14 @@ const PdfBlankPage = lazy(() => import("./pages/PdfBlankPage"));
 const PdfHeaderFooter = lazy(() => import("./pages/PdfHeaderFooter"));
 const PdfImageStamp = lazy(() => import("./pages/PdfImageStamp"));
 const PdfPageSize = lazy(() => import("./pages/PdfPageSize"));
+const PdfRotate = lazy(() => import("./pages/PdfRotate"));
+const PdfRemoveAnnotations = lazy(() => import("./pages/PdfRemoveAnnotations"));
+const PdfSanitize = lazy(() => import("./pages/PdfSanitize"));
+const PdfInfo = lazy(() => import("./pages/PdfInfo"));
+const PdfOverlay = lazy(() => import("./pages/PdfOverlay"));
+const PdfNup = lazy(() => import("./pages/PdfNup"));
+const PdfRemoveBlankPages = lazy(() => import("./pages/PdfRemoveBlankPages"));
+const PdfScalePages = lazy(() => import("./pages/PdfScalePages"));
 
 const queryClient = new QueryClient();
 
@@ -150,6 +158,14 @@ const App = () => (
               <Route path="/pdf-header-footer" element={<PdfHeaderFooter />} />
               <Route path="/pdf-image-stamp" element={<PdfImageStamp />} />
               <Route path="/pdf-page-size" element={<PdfPageSize />} />
+              <Route path="/pdf-rotate" element={<PdfRotate />} />
+              <Route path="/pdf-remove-annotations" element={<PdfRemoveAnnotations />} />
+              <Route path="/pdf-sanitize" element={<PdfSanitize />} />
+              <Route path="/pdf-info" element={<PdfInfo />} />
+              <Route path="/pdf-overlay" element={<PdfOverlay />} />
+              <Route path="/pdf-nup" element={<PdfNup />} />
+              <Route path="/pdf-remove-blank-pages" element={<PdfRemoveBlankPages />} />
+              <Route path="/pdf-scale-pages" element={<PdfScalePages />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

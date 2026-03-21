@@ -10,6 +10,7 @@ import {
   Regex, Binary, Link as LinkIcon, Paintbrush, AlignLeft, FileCode, Hash,
   Droplets, FileImage, Info, SquareStack,
   Merge, Scissors, ImageIcon, Lock, Crop, Contrast, FilePlus, Heading, Stamp, Maximize,
+  RotateCw, Eraser, ShieldCheck, FileSearch, LayoutGrid, FileX, ZoomIn,
 } from "lucide-react";
 
 export interface ToolDef {
@@ -47,6 +48,14 @@ const allTools: ToolDef[] = [
   { id: "pdf-header-footer", title: "PDF Header & Footer", description: "Add headers and footers.", icon: Heading, route: "/pdf-header-footer", category: "pdf", phase: 6, available: true },
   { id: "pdf-image-stamp", title: "PDF Image Stamp", description: "Overlay an image on every page.", icon: Stamp, route: "/pdf-image-stamp", category: "pdf", phase: 6, available: true },
   { id: "pdf-page-size", title: "Page Size Converter", description: "Convert to different page sizes.", icon: Maximize, route: "/pdf-page-size", category: "pdf", phase: 6, available: true },
+  { id: "pdf-rotate", title: "PDF Rotate", description: "Rotate pages by 90°, 180°, or 270°.", icon: RotateCw, route: "/pdf-rotate", category: "pdf", phase: 7, available: true },
+  { id: "pdf-remove-annotations", title: "Remove Annotations", description: "Strip all annotations & comments.", icon: Eraser, route: "/pdf-remove-annotations", category: "pdf", phase: 7, available: true },
+  { id: "pdf-sanitize", title: "Sanitize PDF", description: "Remove metadata, JS & hidden data.", icon: ShieldCheck, route: "/pdf-sanitize", category: "pdf", phase: 7, available: true },
+  { id: "pdf-info", title: "PDF Info / Inspector", description: "View page sizes, metadata & version.", icon: FileSearch, route: "/pdf-info", category: "pdf", phase: 7, available: true },
+  { id: "pdf-overlay", title: "Overlay PDFs", description: "Layer one PDF on top of another.", icon: Layers, route: "/pdf-overlay", category: "pdf", phase: 7, available: true },
+  { id: "pdf-nup", title: "Multi-Page Layout", description: "Put 2/4/6/9 pages per sheet.", icon: LayoutGrid, route: "/pdf-nup", category: "pdf", phase: 7, available: true },
+  { id: "pdf-remove-blank-pages", title: "Remove Blank Pages", description: "Detect & strip blank pages.", icon: FileX, route: "/pdf-remove-blank-pages", category: "pdf", phase: 7, available: true },
+  { id: "pdf-scale-pages", title: "Scale Pages", description: "Scale content up or down.", icon: ZoomIn, route: "/pdf-scale-pages", category: "pdf", phase: 7, available: true },
 
   // IMAGE & MEDIA
   { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: true },
