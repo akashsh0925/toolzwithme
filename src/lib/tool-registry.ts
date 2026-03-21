@@ -10,6 +10,7 @@ import {
   Regex, Binary, Link as LinkIcon, Paintbrush, AlignLeft, FileCode, Hash,
   Droplets, FileImage, Info, SquareStack,
   Merge, Scissors, ImageIcon, Lock, Crop, Contrast, FilePlus, Heading, Stamp, Maximize,
+  RotateCw, Eraser, ShieldCheck, FileSearch, LayoutGrid, FileX, ZoomIn,
 } from "lucide-react";
 
 export interface ToolDef {
