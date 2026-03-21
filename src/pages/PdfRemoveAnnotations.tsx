@@ -46,7 +46,7 @@ export default function PdfRemoveAnnotations() {
   return (
     <ToolLayout title="Remove Annotations" toolName="pdf-remove-annotations">
       <div className="max-w-2xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={setFile} />
+        <PDFDropzone onFileSelect={setFile} isProcessing={processing} />
         {file && (
           <Card className="border-border">
             <CardContent className="pt-6 space-y-4">

@@ -90,7 +90,7 @@ export default function PdfNup() {
   return (
     <ToolLayout title="Multi-Page Layout (N-up)" toolName="pdf-nup">
       <div className="max-w-2xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={setFile} />
+        <PDFDropzone onFileSelect={setFile} isProcessing={processing} />
         {file && (
           <Card className="border-border">
             <CardContent className="pt-6 space-y-4">

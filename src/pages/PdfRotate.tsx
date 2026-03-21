@@ -53,7 +53,7 @@ export default function PdfRotate() {
   return (
     <ToolLayout title="PDF Rotate" toolName="pdf-rotate">
       <div className="max-w-2xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={setFile} />
+        <PDFDropzone onFileSelect={setFile} isProcessing={processing} />
         {file && (
           <Card className="border-border">
             <CardContent className="pt-6 space-y-4">

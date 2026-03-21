@@ -53,7 +53,7 @@ export default function PdfInfo() {
   return (
     <ToolLayout title="PDF Info / Inspector" toolName="pdf-info">
       <div className="max-w-3xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={analyze} />
+        <PDFDropzone onFileSelect={analyze} isProcessing={false} />
         {info && (
           <div className="grid gap-4 md:grid-cols-2">
             <Card className="border-border">

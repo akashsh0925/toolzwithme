@@ -71,7 +71,7 @@ export default function PdfScalePages() {
   return (
     <ToolLayout title="Scale Pages" toolName="pdf-scale-pages">
       <div className="max-w-2xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={setFile} />
+        <PDFDropzone onFileSelect={setFile} isProcessing={processing} />
         {file && (
           <Card className="border-border">
             <CardContent className="pt-6 space-y-4">

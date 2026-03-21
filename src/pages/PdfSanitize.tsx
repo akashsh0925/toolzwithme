@@ -60,7 +60,7 @@ export default function PdfSanitize() {
   return (
     <ToolLayout title="Sanitize PDF" toolName="pdf-sanitize">
       <div className="max-w-2xl mx-auto space-y-6">
-        <PDFDropzone onFileSelect={setFile} />
+        <PDFDropzone onFileSelect={setFile} isProcessing={processing} />
         {file && (
           <Card className="border-border">
             <CardContent className="pt-6 space-y-4">
