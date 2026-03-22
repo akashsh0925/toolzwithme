@@ -158,10 +158,31 @@ const MarkdownToPdf = () => {
     });
   }, []);
 
+  const handleMdFileUpload = useCallback((files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    const file = files[0];
+    if (!file.name.endsWith(".md") && !file.name.endsWith(".markdown") && file.type !== "text/markdown" && file.type !== "text/plain") {
+      toast.error("Please upload a .md or .txt file");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setMarkdown(reader.result as string);
+      setFileName(file.name.replace(/\.(md|markdown|txt)$/, ""));
+      toast.success(`Loaded "${file.name}"`);
+    };
+    reader.readAsText(file);
+  }, []);
+
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
-    handleImageUpload(e.dataTransfer.files);
-  }, [handleImageUpload]);
+    const files = e.dataTransfer.files;
+    if (files.length > 0 && (files[0].name.endsWith(".md") || files[0].name.endsWith(".markdown"))) {
+      handleMdFileUpload(files);
+    } else {
+      handleImageUpload(files);
+    }
+  }, [handleImageUpload, handleMdFileUpload]);
 
   const generatePdf = useCallback(async () => {
     setGenerating(true);
