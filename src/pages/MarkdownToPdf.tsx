@@ -40,12 +40,6 @@ function hello() {
 }
 \`\`\`
 
-### Image Example
-
-You can embed images using standard markdown syntax:
-
-![Example](https://via.placeholder.com/400x200.png?text=Sample+Image)
-
 That's it! Click **Download PDF** to export.
 `;
 
