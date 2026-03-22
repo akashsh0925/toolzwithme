@@ -356,9 +356,16 @@ const MarkdownToPdf = () => {
             </Select>
           </div>
           <div className="space-y-1">
+            <Label className="text-xs text-muted-foreground">Load .md file</Label>
+            <Button variant="outline" size="sm" className="h-9" onClick={() => document.getElementById("md-file-input")?.click()}>
+              <Upload className="w-4 h-4 mr-1.5" /> Open
+            </Button>
+            <input id="md-file-input" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" className="hidden" onChange={(e) => handleMdFileUpload(e.target.files)} />
+          </div>
+          <div className="space-y-1">
             <Label className="text-xs text-muted-foreground">Add image</Label>
             <Button variant="outline" size="sm" className="h-9" onClick={() => document.getElementById("md-img-input")?.click()}>
-              <ImagePlus className="w-4 h-4 mr-1.5" /> Upload
+              <ImagePlus className="w-4 h-4 mr-1.5" /> Embed
               {imageCount > 0 && <span className="ml-1.5 text-xs text-muted-foreground">({imageCount})</span>}
             </Button>
             <input id="md-img-input" type="file" accept="image/*" multiple className="hidden" onChange={(e) => handleImageUpload(e.target.files)} />
