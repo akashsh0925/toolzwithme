@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Download, Eye, FileText, ImagePlus } from "lucide-react";
+import { Download, Eye, FileText, ImagePlus, Upload } from "lucide-react";
 import { toast } from "sonner";
 import { PDFDocument, rgb, StandardFonts } from "pdf-lib";
 
@@ -39,12 +39,6 @@ function hello() {
   console.log("Hello, world!");
 }
 \`\`\`
-
-### Image Example
-
-You can embed images using standard markdown syntax:
-
-![Example](https://via.placeholder.com/400x200.png?text=Sample+Image)
 
 That's it! Click **Download PDF** to export.
 `;
@@ -129,11 +123,10 @@ const fetchImageAsBytes = async (url: string): Promise<{ bytes: Uint8Array; type
       for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
       return { bytes, type: match[1].toLowerCase().startsWith("png") ? "png" : "jpg" };
     }
-    const res = await fetch(url);
-    if (!res.ok) return null;
+    const res = await fetch(url, { mode: "cors" }).catch(() => null);
+    if (!res || !res.ok) return null;
     const buf = await res.arrayBuffer();
     const bytes = new Uint8Array(buf);
-    // Detect PNG by magic bytes
     if (bytes[0] === 0x89 && bytes[1] === 0x50) return { bytes, type: "png" };
     return { bytes, type: "jpg" };
   } catch {
@@ -165,10 +158,31 @@ const MarkdownToPdf = () => {
     });
   }, []);
 
+  const handleMdFileUpload = useCallback((files: FileList | null) => {
+    if (!files || files.length === 0) return;
+    const file = files[0];
+    if (!file.name.endsWith(".md") && !file.name.endsWith(".markdown") && file.type !== "text/markdown" && file.type !== "text/plain") {
+      toast.error("Please upload a .md or .txt file");
+      return;
+    }
+    const reader = new FileReader();
+    reader.onload = () => {
+      setMarkdown(reader.result as string);
+      setFileName(file.name.replace(/\.(md|markdown|txt)$/, ""));
+      toast.success(`Loaded "${file.name}"`);
+    };
+    reader.readAsText(file);
+  }, []);
+
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
-    handleImageUpload(e.dataTransfer.files);
-  }, [handleImageUpload]);
+    const files = e.dataTransfer.files;
+    if (files.length > 0 && (files[0].name.endsWith(".md") || files[0].name.endsWith(".markdown"))) {
+      handleMdFileUpload(files);
+    } else {
+      handleImageUpload(files);
+    }
+  }, [handleImageUpload, handleMdFileUpload]);
 
   const generatePdf = useCallback(async () => {
     setGenerating(true);
@@ -342,9 +356,16 @@ const MarkdownToPdf = () => {
             </Select>
           </div>
           <div className="space-y-1">
+            <Label className="text-xs text-muted-foreground">Load .md file</Label>
+            <Button variant="outline" size="sm" className="h-9" onClick={() => document.getElementById("md-file-input")?.click()}>
+              <Upload className="w-4 h-4 mr-1.5" /> Open
+            </Button>
+            <input id="md-file-input" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain" className="hidden" onChange={(e) => handleMdFileUpload(e.target.files)} />
+          </div>
+          <div className="space-y-1">
             <Label className="text-xs text-muted-foreground">Add image</Label>
             <Button variant="outline" size="sm" className="h-9" onClick={() => document.getElementById("md-img-input")?.click()}>
-              <ImagePlus className="w-4 h-4 mr-1.5" /> Upload
+              <ImagePlus className="w-4 h-4 mr-1.5" /> Embed
               {imageCount > 0 && <span className="ml-1.5 text-xs text-muted-foreground">({imageCount})</span>}
             </Button>
             <input id="md-img-input" type="file" accept="image/*" multiple className="hidden" onChange={(e) => handleImageUpload(e.target.files)} />
