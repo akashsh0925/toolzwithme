@@ -123,11 +123,10 @@ const fetchImageAsBytes = async (url: string): Promise<{ bytes: Uint8Array; type
       for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
       return { bytes, type: match[1].toLowerCase().startsWith("png") ? "png" : "jpg" };
     }
-    const res = await fetch(url);
-    if (!res.ok) return null;
+    const res = await fetch(url, { mode: "cors" }).catch(() => null);
+    if (!res || !res.ok) return null;
     const buf = await res.arrayBuffer();
     const bytes = new Uint8Array(buf);
-    // Detect PNG by magic bytes
     if (bytes[0] === 0x89 && bytes[1] === 0x50) return { bytes, type: "png" };
     return { bytes, type: "jpg" };
   } catch {
