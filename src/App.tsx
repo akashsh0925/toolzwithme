@@ -84,6 +84,7 @@ const PdfOverlay = lazy(() => import("./pages/PdfOverlay"));
 const PdfNup = lazy(() => import("./pages/PdfNup"));
 const PdfRemoveBlankPages = lazy(() => import("./pages/PdfRemoveBlankPages"));
 const PdfScalePages = lazy(() => import("./pages/PdfScalePages"));
+const MarkdownToPdf = lazy(() => import("./pages/MarkdownToPdf"));
 
 const queryClient = new QueryClient();
 
@@ -166,6 +167,7 @@ const App = () => (
               <Route path="/pdf-nup" element={<PdfNup />} />
               <Route path="/pdf-remove-blank-pages" element={<PdfRemoveBlankPages />} />
               <Route path="/pdf-scale-pages" element={<PdfScalePages />} />
+              <Route path="/markdown-to-pdf" element={<MarkdownToPdf />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />

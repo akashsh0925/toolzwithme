@@ -56,6 +56,7 @@ const allTools: ToolDef[] = [
   { id: "pdf-nup", title: "Multi-Page Layout", description: "Put 2/4/6/9 pages per sheet.", icon: LayoutGrid, route: "/pdf-nup", category: "pdf", phase: 7, available: true },
   { id: "pdf-remove-blank-pages", title: "Remove Blank Pages", description: "Detect & strip blank pages.", icon: FileX, route: "/pdf-remove-blank-pages", category: "pdf", phase: 7, available: true },
   { id: "pdf-scale-pages", title: "Scale Pages", description: "Scale content up or down.", icon: ZoomIn, route: "/pdf-scale-pages", category: "pdf", phase: 7, available: true },
+  { id: "markdown-to-pdf", title: "Markdown to PDF", description: "Convert Markdown to a formatted PDF.", icon: FileText, route: "/markdown-to-pdf", category: "pdf", phase: 7, available: true },
 
   // IMAGE & MEDIA
   { id: "heic-converter", title: "HEIC Converter", description: "Convert iPhone HEIC to JPG/PNG.", icon: Image, route: "/heic-converter", category: "image", phase: 1, available: true },
