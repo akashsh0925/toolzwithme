@@ -84,6 +84,7 @@ const PdfOverlay = lazy(() => import("./pages/PdfOverlay"));
 const PdfNup = lazy(() => import("./pages/PdfNup"));
 const PdfRemoveBlankPages = lazy(() => import("./pages/PdfRemoveBlankPages"));
 const PdfScalePages = lazy(() => import("./pages/PdfScalePages"));
+const MarkdownToPdf = lazy(() => import("./pages/MarkdownToPdf"));
 
 const queryClient = new QueryClient();
 
